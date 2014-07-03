@@ -1385,6 +1385,12 @@ is_grouping(const char *type, int *mindev, int *maxdev)
 			*mindev = 2;
 		return (VDEV_TYPE_MIRROR);
 	}
+	
+	if (strcmp(type, "tier") == 0) {
+		if (mindev != NULL)
+			*mindev = 2;
+		return (VDEV_TYPE_TIER);
+	}
 
 	if (strcmp(type, "spare") == 0) {
 		if (mindev != NULL)
@@ -1494,6 +1500,18 @@ construct_spec(nvlist_t *props, int argc, char **argv)
 				}
 				nlogs++;
 			}
+			
+			if (is_log) {
+				if (strcmp(type, VDEV_TYPE_TIER) != 0) {
+					(void) fprintf(stderr,
+					    gettext("invalid vdev "
+					    "specification: unsupported 'log' "
+					    "device: %s\n"), type);
+					return (NULL);
+				}
+				nlogs++;
+			}
+
 
 			for (c = 1; c < argc; c++) {
 				if (is_grouping(argv[c], NULL, NULL) != NULL)

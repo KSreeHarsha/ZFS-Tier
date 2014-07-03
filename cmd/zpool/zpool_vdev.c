@@ -1437,7 +1437,8 @@ construct_spec(nvlist_t *props, int argc, char **argv)
 	nl2cache = 0;
 	is_log = B_FALSE;
 	seen_logs = B_FALSE;
-
+	(void) fprintf(stderr,
+					    gettext("Entering Vdev Spec--\n"));
 	while (argc > 0) {
 		nv = NULL;
 

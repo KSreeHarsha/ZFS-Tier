@@ -56,6 +56,7 @@ $(MODULE)-objs += @top_srcdir@/module/zfs/vdev_disk.o
 $(MODULE)-objs += @top_srcdir@/module/zfs/vdev_file.o
 $(MODULE)-objs += @top_srcdir@/module/zfs/vdev_label.o
 $(MODULE)-objs += @top_srcdir@/module/zfs/vdev_mirror.o
+$(MODULE)-objs += @top_srcdir@/module/zfs/vdev_tier.o
 $(MODULE)-objs += @top_srcdir@/module/zfs/vdev_missing.o
 $(MODULE)-objs += @top_srcdir@/module/zfs/vdev_queue.o
 $(MODULE)-objs += @top_srcdir@/module/zfs/vdev_raidz.o

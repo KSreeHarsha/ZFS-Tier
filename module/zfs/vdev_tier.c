@@ -527,7 +527,7 @@ vdev_ops_t vdev_tier_ops = {
 	vdev_tier_state_change,
 	NULL,
 	NULL,
-	VDEV_TYPE_tier,	/* name of this vdev type */
+	VDEV_TYPE_TIER,	/* name of this vdev type */
 	B_FALSE			/* not a leaf vdev */
 };
 

@@ -531,31 +531,8 @@ vdev_ops_t vdev_tier_ops = {
 	B_FALSE			/* not a leaf vdev */
 };
 
-vdev_ops_t vdev_replacing_ops = {
-	vdev_tier_open,
-	vdev_tier_close,
-	vdev_default_asize,
-	vdev_tier_io_start,
-	vdev_tier_io_done,
-	vdev_tier_state_change,
-	NULL,
-	NULL,
-	VDEV_TYPE_REPLACING,	/* name of this vdev type */
-	B_FALSE			/* not a leaf vdev */
-};
 
-vdev_ops_t vdev_spare_ops = {
-	vdev_tier_open,
-	vdev_tier_close,
-	vdev_default_asize,
-	vdev_tier_io_start,
-	vdev_tier_io_done,
-	vdev_tier_state_change,
-	NULL,
-	NULL,
-	VDEV_TYPE_SPARE,	/* name of this vdev type */
-	B_FALSE			/* not a leaf vdev */
-};
+
 
 #if defined(_KERNEL) && defined(HAVE_SPL)
 module_param(zfs_vdev_tier_switch_us, int, 0644);

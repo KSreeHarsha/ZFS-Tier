@@ -328,6 +328,7 @@ extern vdev_ops_t vdev_file_ops;
 extern vdev_ops_t vdev_missing_ops;
 extern vdev_ops_t vdev_hole_ops;
 extern vdev_ops_t vdev_spare_ops;
+extern vdev_ops_t vdev_tier_ops;
 
 /*
  * Common size functions

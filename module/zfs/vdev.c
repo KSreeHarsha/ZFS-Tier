@@ -58,6 +58,7 @@ static vdev_ops_t *vdev_ops_table[] = {
 	&vdev_file_ops,
 	&vdev_missing_ops,
 	&vdev_hole_ops,
+	&vdev_tier_ops,
 	NULL
 };
 
@@ -356,10 +357,17 @@ vdev_alloc(spa_t *spa, vdev_t **vdp, nvlist_t *nv, vdev_t *parent, uint_t id,
 
 	if (nvlist_lookup_string(nv, ZPOOL_CONFIG_TYPE, &type) != 0)
 		return (SET_ERROR(EINVAL));
-
+	
+	
+	#if defined(_KERNEL)
+	printk("nvlist made it %s\r\n",type);
+	#endif
 	if ((ops = vdev_getops(type)) == NULL)
 		return (SET_ERROR(EINVAL));
 
+	#if defined(_KERNEL)
+	printk("didnt get ops\r\n");
+	#endif
 	/*
 	 * If this is a load, get the vdev guid from the nvlist.
 	 * Otherwise, vdev_alloc_common() will generate one for us.

@@ -1437,8 +1437,7 @@ construct_spec(nvlist_t *props, int argc, char **argv)
 	nl2cache = 0;
 	is_log = B_FALSE;
 	seen_logs = B_FALSE;
-	(void) fprintf(stderr,
-					    gettext("Entering Vdev Spec--\n"));
+	printf("Entering Vdev Spec--YES!!!\n");
 	while (argc > 0) {
 		nv = NULL;
 
@@ -1513,8 +1512,9 @@ construct_spec(nvlist_t *props, int argc, char **argv)
 				nlogs++;
 			}
 
-
+			printf("Creating child\r\n");
 			for (c = 1; c < argc; c++) {
+				printf("Child Number:%d",c);
 				if (is_grouping(argv[c], NULL, NULL) != NULL)
 					break;
 				children++;
@@ -1527,6 +1527,7 @@ construct_spec(nvlist_t *props, int argc, char **argv)
 					return (NULL);
 				child[children - 1] = nv;
 			}
+			printf("There was no error in loop\r\n");
 
 			if (children < mindev) {
 				(void) fprintf(stderr, gettext("invalid vdev "
@@ -1634,6 +1635,7 @@ construct_spec(nvlist_t *props, int argc, char **argv)
 		free(l2cache);
 	free(top);
 
+	printf("There is no error in function\r\n");
 	return (nvroot);
 }
 
@@ -1641,6 +1643,8 @@ nvlist_t *
 split_mirror_vdev(zpool_handle_t *zhp, char *newname, nvlist_t *props,
     splitflags_t flags, int argc, char **argv)
 {
+
+	printf("Entering split mirror\r\n");
 	nvlist_t *newroot = NULL, **child;
 	uint_t c, children;
 
@@ -1680,7 +1684,8 @@ split_mirror_vdev(zpool_handle_t *zhp, char *newname, nvlist_t *props,
 			nvlist_free(newroot);
 		return (NULL);
 	}
-
+	
+	printf("Leaving split mirror");
 	return (newroot);
 }
 
@@ -1698,6 +1703,8 @@ nvlist_t *
 make_root_vdev(zpool_handle_t *zhp, nvlist_t *props, int force, int check_rep,
     boolean_t replacing, boolean_t dryrun, int argc, char **argv)
 {
+
+	printf("Making root vdev\r\n");
 	nvlist_t *newroot;
 	nvlist_t *poolconfig = NULL;
 	is_force = force;
@@ -1712,7 +1719,7 @@ make_root_vdev(zpool_handle_t *zhp, nvlist_t *props, int force, int check_rep,
 
 	if (zhp && ((poolconfig = zpool_get_config(zhp, NULL)) == NULL))
 		return (NULL);
-
+	printf("Just before validation of the pool\r\n");
 	/*
 	 * Validate each device to make sure that its not shared with another
 	 * subsystem.  We do this even if 'force' is set, because there are some
@@ -1723,7 +1730,7 @@ make_root_vdev(zpool_handle_t *zhp, nvlist_t *props, int force, int check_rep,
 		nvlist_free(newroot);
 		return (NULL);
 	}
-
+	printf("Just after validation of the pool\r\n");
 	/*
 	 * Check the replication level of the given vdevs and report any errors
 	 * found.  We include the existing pool spec, if any, as we need to
@@ -1741,6 +1748,6 @@ make_root_vdev(zpool_handle_t *zhp, nvlist_t *props, int force, int check_rep,
 		nvlist_free(newroot);
 		return (NULL);
 	}
-
+	printf("Root create successfully!!\r\n");
 	return (newroot);
 }

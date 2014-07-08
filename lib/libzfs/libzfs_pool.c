@@ -446,6 +446,7 @@ zpool_valid_proplist(libzfs_handle_t *hdl, const char *poolname,
 	struct stat64 statbuf;
 	zpool_handle_t *zhp;
 	nvlist_t *nvroot;
+	printf("Entering proplist\r\n"); 
 
 	if (nvlist_alloc(&retprops, NV_UNIQUE_NAME, 0) != 0) {
 		(void) no_memory(hdl);
@@ -693,9 +694,11 @@ zpool_valid_proplist(libzfs_handle_t *hdl, const char *poolname,
 			break;
 		}
 	}
+	printf("leaving proplist\r\n");
 
 	return (retprops);
 error:
+	printf("found error in prop list\r\n");
 	nvlist_free(retprops);
 	return (NULL);
 }
@@ -938,7 +941,7 @@ zpool_name_valid(libzfs_handle_t *hdl, boolean_t isopen, const char *pool)
 	int ret;
 
 	ret = pool_namecheck(pool, &why, &what);
-
+	printf("In zpool name valid, check name of the pool %d\r\n",ret);
 	/*
 	 * The rules for reserved pool names were extended at a later point.
 	 * But we need to support users with existing pools that may now be
@@ -947,12 +950,14 @@ zpool_name_valid(libzfs_handle_t *hdl, boolean_t isopen, const char *pool)
 	 */
 	if (ret == 0 && !isopen &&
 	    (strncmp(pool, "mirror", 6) == 0 ||
+	     strncmp(pool,"tier",4)== 0 ||
 	    strncmp(pool, "raidz", 5) == 0 ||
 	    strncmp(pool, "spare", 5) == 0 ||
 	    strcmp(pool, "log") == 0)) {
 		if (hdl != NULL)
 			zfs_error_aux(hdl,
 			    dgettext(TEXT_DOMAIN, "name is reserved"));
+		printf("leaving as false\r\n");
 		return (B_FALSE);
 	}
 
@@ -1013,7 +1018,7 @@ zpool_name_valid(libzfs_handle_t *hdl, boolean_t isopen, const char *pool)
 		}
 		return (B_FALSE);
 	}
-
+	printf("Leaving as true\r\n");
 	return (B_TRUE);
 }
 
@@ -1160,24 +1165,29 @@ zpool_create(libzfs_handle_t *hdl, const char *pool, nvlist_t *nvroot,
 	nvlist_t *zc_props = NULL;
 	char msg[1024];
 	int ret = -1;
-
+	printf("Entering zpool create\r\n");
 	(void) snprintf(msg, sizeof (msg), dgettext(TEXT_DOMAIN,
 	    "cannot create '%s'"), pool);
-
+	printf("print message before validate\r\n");	
 	if (!zpool_name_valid(hdl, B_FALSE, pool))
 		return (zfs_error(hdl, EZFS_INVALIDNAME, msg));
-
+	printf("Name validation passed\r\n");
 	if (zcmd_write_conf_nvlist(hdl, &zc, nvroot) != 0)
 		return (-1);
 
 	if (props) {
+		printf("Entering props\r\n");
 		prop_flags_t flags = { .create = B_TRUE, .import = B_FALSE };
 
 		if ((zc_props = zpool_valid_proplist(hdl, pool, props,
 		    SPA_VERSION_1, flags, msg)) == NULL) {
+			
+			printf("Going to create failed\r\n");
 			goto create_failed;
 		}
+	printf("Error before\r\n");
 	}
+	printf("1\r\n");
 
 	if (fsprops) {
 		uint64_t zoned;
@@ -1189,25 +1199,28 @@ zpool_create(libzfs_handle_t *hdl, const char *pool, nvlist_t *nvroot,
 
 		if ((zc_fsprops = zfs_valid_proplist(hdl,
 		    ZFS_TYPE_FILESYSTEM, fsprops, zoned, NULL, msg)) == NULL) {
+			printf("2\r\n");
 			goto create_failed;
 		}
 		if (!zc_props &&
 		    (nvlist_alloc(&zc_props, NV_UNIQUE_NAME, 0) != 0)) {
+			printf("3\r\n");
 			goto create_failed;
 		}
 		if (nvlist_add_nvlist(zc_props,
 		    ZPOOL_ROOTFS_PROPS, zc_fsprops) != 0) {
+			printf("4\r\n");
 			goto create_failed;
 		}
 	}
-
+	printf("made through a serious of fails\r\n");
 	if (zc_props && zcmd_write_src_nvlist(hdl, &zc, zc_props) != 0)
 		goto create_failed;
-
+	printf("last fail %d\r\n",errno);
 	(void) strlcpy(zc.zc_name, pool, sizeof (zc.zc_name));
 
 	if ((ret = zfs_ioctl(hdl, ZFS_IOC_POOL_CREATE, &zc)) != 0) {
-
+		printf("ret value ioctl\r\n");
 		zcmd_free_nvlists(&zc);
 		nvlist_free(zc_props);
 		nvlist_free(zc_fsprops);
@@ -1256,11 +1269,13 @@ zpool_create(libzfs_handle_t *hdl, const char *pool, nvlist_t *nvroot,
 			return (zfs_error(hdl, EZFS_BADDEV, msg));
 
 		default:
+			printf("Hitting default error %d %s\r\n",errno,msg);
 			return (zpool_standard_error(hdl, errno, msg));
 		}
 	}
 
 create_failed:
+	printf("Reached create fail\r\n");
 	zcmd_free_nvlists(&zc);
 	nvlist_free(zc_props);
 	nvlist_free(zc_fsprops);

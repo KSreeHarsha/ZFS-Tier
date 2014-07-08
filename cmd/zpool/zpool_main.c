@@ -793,6 +793,8 @@ errout:
 int
 zpool_do_create(int argc, char **argv)
 {
+
+	printf("Entering zpool do create\r\n");
 	boolean_t force = B_FALSE;
 	boolean_t dryrun = B_FALSE;
 	boolean_t enable_all_pool_feat = B_TRUE;
@@ -1011,6 +1013,7 @@ zpool_do_create(int argc, char **argv)
 	}
 
 	ret = 1;
+	//dryrun=1;
 	if (dryrun) {
 		/*
 		 * For a dry run invocation, print out a basic message and run
@@ -1047,6 +1050,7 @@ zpool_do_create(int argc, char **argv)
 
 				ret = add_prop_list(propname,
 				    ZFS_FEATURE_ENABLED, &props, B_TRUE);
+				printf("Value of ret%d\r\n",ret);
 				if (ret != 0)
 					goto errout;
 			}
@@ -1067,6 +1071,8 @@ zpool_do_create(int argc, char **argv)
 			    "been omitted\n"));
 		}
 	}
+
+printf("Leaving Zpool do create\r\n");
 
 errout:
 	nvlist_free(nvroot);

@@ -73,6 +73,7 @@ libzpool_la_SOURCES = \
 	$(top_srcdir)/module/zfs/vdev_file.c \
 	$(top_srcdir)/module/zfs/vdev_label.c \
 	$(top_srcdir)/module/zfs/vdev_mirror.c \
+	$(top_srcdir)/module/zfs/vdev_tier.c \
 	$(top_srcdir)/module/zfs/vdev_missing.c \
 	$(top_srcdir)/module/zfs/vdev_queue.c \
 	$(top_srcdir)/module/zfs/vdev_raidz.c \

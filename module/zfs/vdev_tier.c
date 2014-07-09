@@ -363,7 +363,8 @@ vdev_tier_io_start(zio_t *zio)
 		 * For normal reads just pick one child.
 		 */
 		c = vdev_tier_child_select(zio);
-		children = (c >= 0);
+		//children = (c >= 0);
+		children=1;
 		#if defined(_KERNEL) && defined(HAVE_SPL)
 			printk("Child picked for reading is %d\r\n",children);
 		#endif
@@ -375,8 +376,8 @@ vdev_tier_io_start(zio_t *zio)
 		 * Writes go to all children.
 		 */
 		c = 0;
-		children = mm->mm_children;
-		
+		//children = mm->mm_children;
+		children=1;
 		#if defined(_KERNEL) && defined(HAVE_SPL)
 			printk("Child picked for writing is %d\r\n",children);
 		#endif

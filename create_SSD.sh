@@ -1,1 +1,1 @@
-zpool create SSD sde
+zpool create -f SSD sde

@@ -1,1 +1,1 @@
-zpool create HDD sdg 
+zpool create -f HDD sdg 

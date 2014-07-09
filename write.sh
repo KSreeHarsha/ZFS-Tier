@@ -1,3 +1,3 @@
-dd if=/dev/zero of=/tank/testfile bs=1K count=1
+dd if=/dev/zero of=/tank/testfile bs=8k count=1048576
 
 #trace-cmd report

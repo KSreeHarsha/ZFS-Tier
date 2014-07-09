@@ -359,6 +359,10 @@ vdev_tier_io_start(zio_t *zio)
 		 */
 		c = vdev_tier_child_select(zio);
 		children = (c >= 0);
+		#if defined(_KERNEL) && defined(HAVE_SPL)
+			printk("Child picked for reading is %d",children);
+		#endif
+		
 	} else {
 		ASSERT(zio->io_type == ZIO_TYPE_WRITE);
 
@@ -367,6 +371,10 @@ vdev_tier_io_start(zio_t *zio)
 		 */
 		c = 0;
 		children = mm->mm_children;
+		
+		#if defined(_KERNEL) && defined(HAVE_SPL)
+			printk("Child picked for writing is %d",children);
+		#endif
 	}
 
 	while (children--) {

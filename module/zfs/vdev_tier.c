@@ -330,6 +330,11 @@ vdev_tier_child_select(zio_t *zio)
 static int
 vdev_tier_io_start(zio_t *zio)
 {
+
+		#if defined(_KERNEL) && defined(HAVE_SPL)
+			printk("Entering tier IO\r\n");
+		#endif
+	
 	tier_map_t *mm;
 	tier_child_t *mc;
 	int c, children;
@@ -360,7 +365,7 @@ vdev_tier_io_start(zio_t *zio)
 		c = vdev_tier_child_select(zio);
 		children = (c >= 0);
 		#if defined(_KERNEL) && defined(HAVE_SPL)
-			printk("Child picked for reading is %d",children);
+			printk("Child picked for reading is %d\r\n",children);
 		#endif
 		
 	} else {
@@ -373,7 +378,7 @@ vdev_tier_io_start(zio_t *zio)
 		children = mm->mm_children;
 		
 		#if defined(_KERNEL) && defined(HAVE_SPL)
-			printk("Child picked for writing is %d",children);
+			printk("Child picked for writing is %d\r\n",children);
 		#endif
 	}
 
@@ -385,7 +390,10 @@ vdev_tier_io_start(zio_t *zio)
 		    vdev_tier_child_done, mc));
 		c++;
 	}
-
+	
+		#if defined(_KERNEL) && defined(HAVE_SPL)
+			printk("Leaving tier IO\r\n");
+		#endif
 	return (ZIO_PIPELINE_CONTINUE);
 }
 

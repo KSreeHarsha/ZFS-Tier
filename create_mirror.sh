@@ -1,1 +1,1 @@
-zpool create tank mirror sdg sdc 
+zpool create -f tank mirror sde sdg 

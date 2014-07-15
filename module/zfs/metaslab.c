@@ -211,6 +211,10 @@ metaslab_class_get_deferred(metaslab_class_t *mc)
 uint64_t
 metaslab_class_get_space(metaslab_class_t *mc)
 {
+	//return 23;
+	#if defined (_KERNEL)
+	printk("Space allocated for pool is %d",mc->mc_space);
+	#endif	
 	return (mc->mc_space);
 }
 

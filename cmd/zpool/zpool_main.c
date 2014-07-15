@@ -794,7 +794,7 @@ int
 zpool_do_create(int argc, char **argv)
 {
 
-	printf("Entering zpool do create\r\n");
+//	printf("Entering zpool do create\r\n");
 	boolean_t force = B_FALSE;
 	boolean_t dryrun = B_FALSE;
 	boolean_t enable_all_pool_feat = B_TRUE;
@@ -1050,7 +1050,7 @@ zpool_do_create(int argc, char **argv)
 
 				ret = add_prop_list(propname,
 				    ZFS_FEATURE_ENABLED, &props, B_TRUE);
-				printf("Value of ret%d\r\n",ret);
+				//printf("Value of ret%d\r\n",ret);
 				if (ret != 0)
 					goto errout;
 			}
@@ -1072,7 +1072,7 @@ zpool_do_create(int argc, char **argv)
 		}
 	}
 
-printf("Leaving Zpool do create\r\n");
+//printf("Leaving Zpool do create\r\n");
 
 errout:
 	nvlist_free(nvroot);
@@ -3019,6 +3019,8 @@ void
 print_list_stats(zpool_handle_t *zhp, const char *name, nvlist_t *nv,
     list_cbdata_t *cb, int depth)
 {
+
+	printf("Entering print list stats\r\n");
 	nvlist_t **child;
 	vdev_stat_t *vs;
 	uint_t c, children;
@@ -3036,7 +3038,7 @@ print_list_stats(zpool_handle_t *zhp, const char *name, nvlist_t *nv,
 		else
 			(void) printf("%*s%s%*s", depth, "", name,
 			    (int)(cb->cb_namewidth - strlen(name) - depth), "");
-
+		//printf("Capacity Caliculated is %d",vs->vs_space);
 		/* only toplevel vdevs have capacity stats */
 		if (vs->vs_space == 0) {
 			if (scripted)
@@ -3098,12 +3100,13 @@ print_list_stats(zpool_handle_t *zhp, const char *name, nvlist_t *nv,
 int
 list_callback(zpool_handle_t *zhp, void *data)
 {
+	printf("Entering list callback\r\n");
 	list_cbdata_t *cbp = data;
 	nvlist_t *config;
 	nvlist_t *nvroot;
 
 	config = zpool_get_config(zhp, NULL);
-
+	//printf(config);
 	print_pool(zhp, cbp);
 	if (!cbp->cb_verbose)
 		return (0);
@@ -3111,7 +3114,7 @@ list_callback(zpool_handle_t *zhp, void *data)
 	verify(nvlist_lookup_nvlist(config, ZPOOL_CONFIG_VDEV_TREE,
 	    &nvroot) == 0);
 	print_list_stats(zhp, NULL, nvroot, cbp, 0);
-
+	printf("Leaving list callback\r\n");
 	return (0);
 }
 
@@ -3170,7 +3173,7 @@ zpool_do_list(int argc, char **argv)
 
 	argc -= optind;
 	argv += optind;
-
+	//printf("Printing data after this\r\n");
 	get_interval_count(&argc, argv, &interval, &count);
 
 	if (zprop_get_list(g_zfs, props, &cb.cb_proplist, ZFS_TYPE_POOL) != 0)
@@ -3184,28 +3187,28 @@ zpool_do_list(int argc, char **argv)
 		zprop_free_list(cb.cb_proplist);
 		return (0);
 	}
-
+	printf("Print happens here\r\n");
 	for (;;) {
 		pool_list_update(list);
-
+	printf("1\r\n");		
 		if (pool_list_count(list) == 0)
 			break;
-
+	printf("2\r\n");
 		if (timestamp_fmt != NODATE)
 			print_timestamp(timestamp_fmt);
-
+	printf("3\r\n");
 		if (!cb.cb_scripted && (first || cb.cb_verbose)) {
 			print_header(&cb);
 			first = B_FALSE;
 		}
 		ret = pool_list_iter(list, B_TRUE, list_callback, &cb);
-
+	printf("4\r\n");
 		if (interval == 0)
 			break;
-
+	printf("5\r\n");
 		if (count != 0 && --count == 0)
 			break;
-
+	printf("6\r\n");
 		(void) sleep(interval);
 	}
 

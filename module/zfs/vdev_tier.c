@@ -332,7 +332,7 @@ vdev_tier_io_start(zio_t *zio)
 {
 
 		#if defined(_KERNEL) && defined(HAVE_SPL)
-			printk("Entering tier IO\r\n");
+		//	printk("Entering tier IO\r\n");
 		#endif
 	
 	tier_map_t *mm;
@@ -366,7 +366,7 @@ vdev_tier_io_start(zio_t *zio)
 		//children = (c >= 0);
 		children=1;
 		#if defined(_KERNEL) && defined(HAVE_SPL)
-			printk("Child picked for reading is %d\r\n",children);
+			//printk("Child picked for reading is %d\r\n",children);
 		#endif
 		
 	} else {

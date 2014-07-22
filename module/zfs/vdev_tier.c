@@ -32,7 +32,8 @@
 #include <sys/vdev_impl.h>
 #include <sys/zio.h>
 #include <sys/fs/zfs.h>
-
+//#include <inttypes.h>
+//#include __STDC_FORMAT_MACROS
 /*
  * Virtual device vector for tiering.
  */
@@ -270,7 +271,11 @@ vdev_tier_scrub_done(zio_t *zio)
 
 	zio_buf_free(zio->io_data, zio->io_size);
 
-	mc->mc_error = zio->io_error;
+	#if defined(_KERNEL)
+	printk("***Total number of error encountered is %d- for %d \r\n",zio->io_error,mc->mc_vd->vdev_id);
+	#endif
+	//mc->mc_error = zio->io_error;
+	mc->mc_error=0;
 	mc->mc_tried = 1;
 	mc->mc_skipped = 0;
 }
@@ -286,7 +291,7 @@ vdev_tier_child_select(zio_t *zio)
 	tier_child_t *mc;
 	uint64_t txg = zio->io_txg;
 	int i, c;
-
+	return 0;
 	ASSERT(zio->io_bp == NULL || BP_PHYSICAL_BIRTH(zio->io_bp) == txg);
 
 	/*
@@ -349,7 +354,9 @@ vdev_tier_io_start(zio_t *zio)
 			 * children.  If any child succeeds, it will copy its
 			 * data into zio->io_data in vdev_tier_scrub_done.
 			 */
-			for (c = 0; c < mm->mm_children; c++) {
+			//for (c = 0; c < mm->mm_children; c++) {
+			  for (c = 0; c < 1; c++) {
+			  
 				mc = &mm->mm_child[c];
 				zio_nowait(zio_vdev_child_io(zio, zio->io_bp,
 				    mc->mc_vd, mc->mc_offset,
@@ -379,7 +386,7 @@ vdev_tier_io_start(zio_t *zio)
 		//children = mm->mm_children;
 		children=1;
 		#if defined(_KERNEL) && defined(HAVE_SPL)
-			printk("Child picked for writing is %d\r\n",children);
+		//	printk("Child picked for writing is %d\r\n",children);
 		#endif
 	}
 
@@ -393,7 +400,7 @@ vdev_tier_io_start(zio_t *zio)
 	}
 	
 		#if defined(_KERNEL) && defined(HAVE_SPL)
-			printk("Leaving tier IO\r\n");
+			//printk("Leaving tier IO\r\n");
 		#endif
 	return (ZIO_PIPELINE_CONTINUE);
 }

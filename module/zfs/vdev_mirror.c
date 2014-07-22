@@ -269,7 +269,10 @@ vdev_mirror_scrub_done(zio_t *zio)
 	}
 
 	zio_buf_free(zio->io_data, zio->io_size);
-
+	
+#if defined(_KERNEL)
+//printk("***Total number of error encountered is %d",zio->io_error);
+#endif
 	mc->mc_error = zio->io_error;
 	mc->mc_tried = 1;
 	mc->mc_skipped = 0;

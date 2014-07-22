@@ -3108,6 +3108,7 @@ list_callback(zpool_handle_t *zhp, void *data)
 	config = zpool_get_config(zhp, NULL);
 	//printf(config);
 	print_pool(zhp, cbp);
+	printf("Printing in list_callback\r\n");
 	if (!cbp->cb_verbose)
 		return (0);
 

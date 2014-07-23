@@ -274,8 +274,8 @@ vdev_tier_scrub_done(zio_t *zio)
 	#if defined(_KERNEL)
 	printk("***Total number of error encountered is %d- for %d \r\n",zio->io_error,mc->mc_vd->vdev_id);
 	#endif
-	//mc->mc_error = zio->io_error;
-	mc->mc_error=0;
+	mc->mc_error = zio->io_error;
+	//mc->mc_error=0;
 	mc->mc_tried = 1;
 	mc->mc_skipped = 0;
 }

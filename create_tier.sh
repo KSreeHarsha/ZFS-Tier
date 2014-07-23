@@ -1,1 +1,1 @@
-zpool create -f tank tier sde sdg 
+zpool create -f tank tier sde sdm 

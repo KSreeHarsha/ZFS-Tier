@@ -568,6 +568,11 @@ void
 dnode_reallocate(dnode_t *dn, dmu_object_type_t ot, int blocksize,
     dmu_object_type_t bonustype, int bonuslen, dmu_tx_t *tx)
 {
+
+
+			#if defined(_KERNEL)
+			printk("#############Entering dnode reallocate ##########\r\n");
+			#endif
 	int nblkptr;
 
 	ASSERT3U(blocksize, >=, SPA_MINBLOCKSIZE);
@@ -634,6 +639,10 @@ dnode_reallocate(dnode_t *dn, dmu_object_type_t ot, int blocksize,
 
 	dn->dn_allocated_txg = tx->tx_txg;
 	mutex_exit(&dn->dn_mtx);
+
+			#if defined(_KERNEL)
+			printk("#############Leaving dnode reallocate ##########\r\n");
+			#endif
 }
 
 #ifdef	_KERNEL
@@ -942,12 +951,25 @@ dnode_special_close(dnode_handle_t *dnh)
 	 * has a hold on this dnode while we are trying to evict this
 	 * dnode.
 	 */
+
+			#if defined(_KERNEL)
+            printk("Entering dnode special close\r\n");
+            #endif
+	
 	while (refcount_count(&dn->dn_holds) > 0)
-		delay(1);
+	{		delay(1);
+		#if defined(_KERNEL)
+            printk("Ref count for dnode %d\n",refcount_count(&dn->dn_holds));
+            #endif
+	}
 	zrl_add(&dnh->dnh_zrlock);
 	dnode_destroy(dn); /* implicit zrl_remove() */
 	zrl_destroy(&dnh->dnh_zrlock);
 	dnh->dnh_dnode = NULL;
+            #if defined(_KERNEL)
+            printk("Leaving dnode special close\r\n");
+            #endif
+
 }
 
 dnode_t *
@@ -1150,6 +1172,9 @@ dnode_hold_impl(objset_t *os, uint64_t object, int flag,
 int
 dnode_hold(objset_t *os, uint64_t object, void *tag, dnode_t **dnp)
 {
+	#if defined(_KERNEL)
+	//printk(" ***** Entering dnode_hold\n");
+	#endif
 	return (dnode_hold_impl(os, object, DNODE_MUST_BE_ALLOCATED, tag, dnp));
 }
 

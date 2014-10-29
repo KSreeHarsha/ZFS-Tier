@@ -1,5 +1,6 @@
 
 zpool destroy tank
+zpool destroy tank3
 zpool destroy HDD
 zpool destroy SSD
 make -j

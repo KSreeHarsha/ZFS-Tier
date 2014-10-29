@@ -23,7 +23,8 @@
  * Copyright (c) 2013 by Delphix. All rights reserved.
  * Copyright (c) 2013 by Saso Kiselkov. All rights reserved.
  */
-
+//#include <stdio.h>
+//#include <stdio_ext.h>
 #include <sys/dmu.h>
 #include <sys/dmu_impl.h>
 #include <sys/dmu_tx.h>
@@ -43,6 +44,7 @@
 #include <sys/zio_checksum.h>
 #include <sys/zio_compress.h>
 #include <sys/sa.h>
+//#include <stdio.h>
 #ifdef _KERNEL
 #include <sys/vmsystm.h>
 #include <sys/zfs_znode.h>
@@ -127,6 +129,9 @@ int
 dmu_buf_hold(objset_t *os, uint64_t object, uint64_t offset,
     void *tag, dmu_buf_t **dbp, int flags)
 {
+	#if defined(_KERNEL)
+	//printk(" ***** Entering dmu buf hold\r\n");
+	#endif
 	dnode_t *dn;
 	uint64_t blkid;
 	dmu_buf_impl_t *db;
@@ -734,14 +739,35 @@ int
 dmu_read(objset_t *os, uint64_t object, uint64_t offset, uint64_t size,
     void *buf, uint32_t flags)
 {
+
+	//printf("I am in DMU read\r\n");
+	
+	#if defined(_KERNEL)
+	printk(" ***  Entering dmu read ***\n");
+	#endif
+
+
+	#if defined(_KERNEL)
+	printk(" *** object :%d offset:%d size:%d buf:%s size of buf:%d***\n",object,offset,size,(char*)buf,sizeof(*buf));
+	#endif
+
+
 	dnode_t *dn;
 	dmu_buf_t **dbp;
 	int numbufs, err;
 
 	err = dnode_hold(os, object, FTAG, &dn);
 	if (err)
-		return (err);
+	{
 
+	#if defined(_KERNEL)
+	//printk(" ***** Error1 in dmu read:%d\n",err);
+	#endif
+		return (err);
+	}
+	#if defined(_KERNEL)
+	printk(" ***** dnode type in dmu read %d\n",dn->dn_type);
+	#endif
 	/*
 	 * Deal with odd block sizes, where there can't be data past the first
 	 * block.  If we ever do the tail block optimization, we will need to
@@ -778,7 +804,12 @@ dmu_read(objset_t *os, uint64_t object, uint64_t offset, uint64_t size,
 			tocpy = (int)MIN(db->db_size - bufoff, size);
 
 			bcopy((char *)db->db_data + bufoff, buf, tocpy);
+			
+			#if defined(_KERNEL)
+			printk("Data in read buffer is  %s %d %d %d\n",(char*)buf,db->db_object,db->db_offset,db->db_size);
+			#endif
 
+	
 			offset += tocpy;
 			size -= tocpy;
 			buf = (char *)buf + tocpy;
@@ -786,6 +817,13 @@ dmu_read(objset_t *os, uint64_t object, uint64_t offset, uint64_t size,
 		dmu_buf_rele_array(dbp, numbufs, FTAG);
 	}
 	dnode_rele(dn, FTAG);
+	#if defined(_KERNEL)
+	printk(" *** Leaving dmu read ***");
+	#endif
+
+	#if defined(_KERNEL)
+	//printk(" ***** Error2 in dmu read:%d\n",err);
+	#endif
 	return (err);
 }
 
@@ -793,6 +831,12 @@ void
 dmu_write(objset_t *os, uint64_t object, uint64_t offset, uint64_t size,
     const void *buf, dmu_tx_t *tx)
 {
+
+
+
+			#if defined(_KERNEL)
+			//printk("Entering dmu write with offset %d ----%d\n",object,offset);
+			#endif
 	dmu_buf_t **dbp;
 	int numbufs, i;
 
@@ -802,6 +846,9 @@ dmu_write(objset_t *os, uint64_t object, uint64_t offset, uint64_t size,
 	VERIFY(0 == dmu_buf_hold_array(os, object, offset, size,
 	    FALSE, FTAG, &numbufs, &dbp));
 
+			#if defined(_KERNEL)
+			//printk("Number of buffers  %d\n",numbufs);
+			#endif
 	for (i = 0; i < numbufs; i++) {
 		int tocpy;
 		int bufoff;
@@ -821,6 +868,9 @@ dmu_write(objset_t *os, uint64_t object, uint64_t offset, uint64_t size,
 
 		(void) memcpy((char *)db->db_data + bufoff, buf, tocpy);
 
+			#if defined(_KERNEL)
+			//printk("Data in the Write buffer is  %s----- %d %d %d\n",(char*)buf,db->db_object,db->db_offset,db->db_size);
+			#endif
 		if (tocpy == db->db_size)
 			dmu_buf_fill_done(db, tx);
 
@@ -828,6 +878,9 @@ dmu_write(objset_t *os, uint64_t object, uint64_t offset, uint64_t size,
 		size -= tocpy;
 		buf = (char *)buf + tocpy;
 	}
+			#if defined(_KERNEL)
+			//printk("Leaving dmu write\n");
+			#endif
 	dmu_buf_rele_array(dbp, numbufs, FTAG);
 }
 

@@ -1199,6 +1199,8 @@ dmu_tx_try_assign(dmu_tx_t *tx, txg_how_t txg_how)
 static void
 dmu_tx_unassign(dmu_tx_t *tx)
 {
+
+	
 	dmu_tx_hold_t *txh;
 
 	if (tx->tx_txg == 0)
@@ -1365,6 +1367,11 @@ dmu_tx_willuse_space(dmu_tx_t *tx, int64_t delta)
 void
 dmu_tx_commit(dmu_tx_t *tx)
 {
+	#if defined(_KERNEL)
+//    printk(" ***  Entering dmu tx commit ***\n");
+    #endif
+
+	
 	dmu_tx_hold_t *txh;
 
 	ASSERT(tx->tx_txg != 0);
@@ -1412,6 +1419,10 @@ dmu_tx_commit(dmu_tx_t *tx)
 	    refcount_count(&tx->tx_space_freed));
 #endif
 	kmem_free(tx, sizeof (dmu_tx_t));
+	
+	#if defined(_KERNEL)
+ //   printk(" ***  Leaving dmu tx commit ***\n");
+    #endif
 }
 
 void

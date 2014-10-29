@@ -110,7 +110,10 @@ vdev_tier_map_alloc(zio_t *zio)
 		spa_t *spa = zio->io_spa;
 
 		c = BP_GET_NDVAS(zio->io_bp);
-
+		
+			#if defined(_KERNEL)
+			//printk("TIER MAP ALLOC 1");
+			#endif
 		mm = kmem_zalloc(offsetof(tier_map_t, mm_child[c]),
 		    KM_PUSHPAGE);
 		mm->mm_children = c;
@@ -140,6 +143,9 @@ vdev_tier_map_alloc(zio_t *zio)
 		int lowest_pending = INT_MAX;
 		int lowest_nr = 1;
 
+			#if defined(_KERNEL)
+			//printk("TIER MAP ALLOC 2 START\r\n");
+			#endif
 		c = vd->vdev_children;
 
 		mm = kmem_zalloc(offsetof(tier_map_t, mm_child[c]),
@@ -154,7 +160,10 @@ vdev_tier_map_alloc(zio_t *zio)
 			mc = &mm->mm_child[c];
 			mc->mc_vd = vd->vdev_child[c];
 			mc->mc_offset = zio->io_offset;
-
+			
+			#if defined(_KERNEL)
+			//printk("*********vdev:%d offset:%d***********\r\n",vd->vdev_child[c],zio->io_offset);
+			#endif
 			if (mm->mm_replacing)
 				continue;
 
@@ -174,6 +183,11 @@ vdev_tier_map_alloc(zio_t *zio)
 				lowest_nr++;
 			}
 		}
+
+		
+			#if defined(_KERNEL)
+			//printk("TIER MAP ALLOC 2 END\r\n");
+			#endif
 
 		d = gethrtime() / (NSEC_PER_USEC * zfs_vdev_tier_switch_us);
 		d = (d % lowest_nr) + 1;
@@ -199,37 +213,39 @@ static int
 vdev_tier_open(vdev_t *vd, uint64_t *asize, uint64_t *max_asize,
     uint64_t *ashift)
 {
-	int numerrors = 0;
-	int lasterror = 0;
-	int c;
+int numerrors = 0;
+    int lasterror = 0;
+    int c;
 
-	if (vd->vdev_children == 0) {
-		vd->vdev_stat.vs_aux = VDEV_AUX_BAD_LABEL;
-		return (SET_ERROR(EINVAL));
-	}
+    if (vd->vdev_children == 0) {
+        vd->vdev_stat.vs_aux = VDEV_AUX_BAD_LABEL;
+        return (SET_ERROR(EINVAL));
+    }
 
-	vdev_open_children(vd);
+    vdev_open_children(vd);
 
-	for (c = 0; c < vd->vdev_children; c++) {
-		vdev_t *cvd = vd->vdev_child[c];
+    for (c = 0; c < vd->vdev_children; c++) {
+        vdev_t *cvd = vd->vdev_child[c];
 
-		if (cvd->vdev_open_error) {
-			lasterror = cvd->vdev_open_error;
-			numerrors++;
-			continue;
-		}
+        if (cvd->vdev_open_error) {
+            lasterror = cvd->vdev_open_error;
+            numerrors++;
+            continue;
+        }
 
-		*asize = MIN(*asize - 1, cvd->vdev_asize - 1) + 1;
-		*max_asize = MIN(*max_asize - 1, cvd->vdev_max_asize - 1) + 1;
-		*ashift = MAX(*ashift, cvd->vdev_ashift);
-	}
+        *asize = MIN(*asize - 1, cvd->vdev_asize - 1) + 1;
+        *max_asize = MIN(*max_asize - 1, cvd->vdev_max_asize - 1) + 1;
+        *ashift = MAX(*ashift, cvd->vdev_ashift);
+    }
 
-	if (numerrors == vd->vdev_children) {
-		vd->vdev_stat.vs_aux = VDEV_AUX_NO_REPLICAS;
-		return (lasterror);
-	}
+    if (numerrors == vd->vdev_children) {
+        vd->vdev_stat.vs_aux = VDEV_AUX_NO_REPLICAS;
+        return (lasterror);
+    }
 
-	return (0);
+    return (0);
+
+
 }
 
 static void
@@ -272,7 +288,7 @@ vdev_tier_scrub_done(zio_t *zio)
 	zio_buf_free(zio->io_data, zio->io_size);
 
 	#if defined(_KERNEL)
-	printk("***Total number of error encountered is %d- for %d \r\n",zio->io_error,mc->mc_vd->vdev_id);
+	//printk("***Total number of error encountered is %d- for %d \r\n",zio->io_error,mc->mc_vd->vdev_id);
 	#endif
 	mc->mc_error = zio->io_error;
 	//mc->mc_error=0;

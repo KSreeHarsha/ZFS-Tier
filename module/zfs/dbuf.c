@@ -657,6 +657,7 @@ dbuf_read(dmu_buf_impl_t *db, zio_t *zio, uint32_t flags)
 	int havepzio = (zio != NULL);
 	int prefetch;
 	dnode_t *dn;
+	dmu_object_info_t doi;
 
 	/*
 	 * We don't have to hold the mutex to check db_state because it
@@ -669,6 +670,14 @@ dbuf_read(dmu_buf_impl_t *db, zio_t *zio, uint32_t flags)
 
 	DB_DNODE_ENTER(db);
 	dn = DB_DNODE(db);
+
+	//dmu_object_info_from_dnode(dn, &doi);
+
+
+			#if defined(_KERNEL)
+			//printk(" dnode type in dbuf_read %d \n",dn->dn_type);
+			#endif
+		
 	if ((flags & DB_RF_HAVESTRUCT) == 0)
 		rw_enter(&dn->dn_struct_rwlock, RW_READER);
 
@@ -2406,6 +2415,9 @@ dbuf_sync_indirect(dbuf_dirty_record_t *dr, dmu_tx_t *tx)
 	/* Provide the pending dirty record to child dbufs */
 	db->db_data_pending = dr;
 
+	#if defined(_KERNEL)
+	//printk(" dnode type in dbuf_write %d  txg %d\n",dn->dn_type,dmu_tx_get_txg(tx));
+	#endif
 	mutex_exit(&db->db_mtx);
 	dbuf_write(dr, db->db_buf, tx);
 

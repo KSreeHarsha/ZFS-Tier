@@ -1304,6 +1304,9 @@ __attribute__((always_inline))
 static inline void
 __zio_execute(zio_t *zio)
 {
+			#if defined(_KERNEL)
+			//printk("Entering __zio_exec stage %d\r\n",(highbit(stage)-1));
+			#endif
 	zio->io_executor = curthread;
 
 	while (zio->io_stage < ZIO_STAGE_DONE) {
@@ -1358,12 +1361,20 @@ __zio_execute(zio_t *zio)
 		}
 
 		zio->io_stage = stage;
+	
+			#if defined(_KERNEL)
+			//printk("Stage %d\r\n",(highbit(stage)-1));
+			#endif
 		rv = zio_pipeline[highbit(stage) - 1](zio);
 
 		if (rv == ZIO_PIPELINE_STOP)
 			return;
 
 		ASSERT(rv == ZIO_PIPELINE_CONTINUE);
+
+			#if defined(_KERNEL)
+			//printk("Leaving __zio_exec stage %d\r\n",(highbit(stage)-1));
+			#endif
 	}
 }
 
@@ -1376,6 +1387,9 @@ __zio_execute(zio_t *zio)
 int
 zio_wait(zio_t *zio)
 {
+			#if defined(_KERNEL)
+			//printk("Entering ZIO_wait\r\n");
+			#endif
 	int error;
 
 	ASSERT(zio->io_stage == ZIO_STAGE_OPEN);
@@ -1393,6 +1407,10 @@ zio_wait(zio_t *zio)
 	error = zio->io_error;
 	zio_destroy(zio);
 
+	
+			#if defined(_KERNEL)
+			//printk("Error ZIO_wait %d\r\n",error);
+			#endif
 	return (error);
 }
 

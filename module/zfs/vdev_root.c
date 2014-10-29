@@ -74,6 +74,10 @@ vdev_root_open(vdev_t *vd, uint64_t *asize, uint64_t *max_asize,
 		if (cvd->vdev_open_error && !cvd->vdev_islog) {
 			lasterror = cvd->vdev_open_error;
 			numerrors++;
+			#if defined(_KERNEL)
+			printk("Number of errors %d\r\n",lasterror);
+			#endif
+			
 		}
 	}
 

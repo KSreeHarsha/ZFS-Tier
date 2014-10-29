@@ -360,13 +360,13 @@ vdev_alloc(spa_t *spa, vdev_t **vdp, nvlist_t *nv, vdev_t *parent, uint_t id,
 	
 	
 	#if defined(_KERNEL)
-	printk("nvlist made it %s\r\n",type);
+	//printk("nvlist made it %s\r\n",type);
 	#endif
 	if ((ops = vdev_getops(type)) == NULL)
 		return (SET_ERROR(EINVAL));
 
 	#if defined(_KERNEL)
-	printk("didnt get ops\r\n");
+	//printk("didnt get ops\r\n");
 	#endif
 	/*
 	 * If this is a load, get the vdev guid from the nvlist.
@@ -1171,6 +1171,10 @@ vdev_open(vdev_t *vd)
 
 	error = vd->vdev_ops->vdev_op_open(vd, &osize, &max_osize, &ashift);
 
+	#if defined(_KERNEL)
+	//printk("Error value in vdev open-- %d\r\n",error);
+	//printk("Error value in vdev open-- %s\r\n",vd->vdev_ops->vdev_op_type);
+	#endif
 	/*
 	 * Reset the vdev_reopening flag so that we actually close
 	 * the vdev on error.
@@ -1180,6 +1184,9 @@ vdev_open(vdev_t *vd)
 		error = zio_handle_device_injection(vd, NULL, ENXIO);
 
 	if (error) {
+			#if defined(_KERNEL)
+			//printk("Error occured again\r\n");
+			#endif
 		if (vd->vdev_removed &&
 		    vd->vdev_stat.vs_aux != VDEV_AUX_OPEN_FAILED)
 			vd->vdev_removed = B_FALSE;
@@ -1196,6 +1203,9 @@ vdev_open(vdev_t *vd)
 	 * the vdev is accessible.  If we're faulted, bail.
 	 */
 	if (vd->vdev_faulted) {
+			#if defined(_KERNEL)
+			//printk("Err Vdev Faulted\r\n");
+			#endif
 		ASSERT(vd->vdev_children == 0);
 		ASSERT(vd->vdev_label_aux == VDEV_AUX_ERR_EXCEEDED ||
 		    vd->vdev_label_aux == VDEV_AUX_EXTERNAL);
@@ -1231,6 +1241,9 @@ vdev_open(vdev_t *vd)
 
 	if (vd->vdev_children == 0) {
 		if (osize < SPA_MINDEVSIZE) {
+			#if defined(_KERNEL)
+			//printk("Err SPA MINDEV 0\r\n");
+			#endif
 			vdev_set_state(vd, B_TRUE, VDEV_STATE_CANT_OPEN,
 			    VDEV_AUX_TOO_SMALL);
 			return (SET_ERROR(EOVERFLOW));
@@ -1240,8 +1253,14 @@ vdev_open(vdev_t *vd)
 		max_asize = max_osize - (VDEV_LABEL_START_SIZE +
 		    VDEV_LABEL_END_SIZE);
 	} else {
-		if (vd->vdev_parent != NULL && osize < SPA_MINDEVSIZE -
+		if (vd->vdev_parent != NULL //&& osize < SPA_MINDEVSIZE -
+			 && vd->vdev_ops != &vdev_tier_ops && osize < SPA_MINDEVSIZE -
 		    (VDEV_LABEL_START_SIZE + VDEV_LABEL_END_SIZE)) {
+			#if defined(_KERNEL)
+			//printk("vdev op type %s\r\n",vd->vdev_ops->vdev_op_type);
+			//printk("Computed osize-%d",osize);
+			//printk("Err SPA MINDEV 1\r\n");
+			#endif
 			vdev_set_state(vd, B_TRUE, VDEV_STATE_CANT_OPEN,
 			    VDEV_AUX_TOO_SMALL);
 			return (SET_ERROR(EOVERFLOW));
@@ -1257,6 +1276,9 @@ vdev_open(vdev_t *vd)
 	 * Make sure the allocatable size hasn't shrunk.
 	 */
 	if (asize < vd->vdev_min_asize) {
+		#if defined(_KERNEL)
+		//printk("You have shrunk the vdev :(\r\n");	
+		#endif
 		vdev_set_state(vd, B_TRUE, VDEV_STATE_CANT_OPEN,
 		    VDEV_AUX_BAD_LABEL);
 		return (SET_ERROR(EINVAL));
@@ -2168,6 +2190,11 @@ vdev_sync_done(vdev_t *vd, uint64_t txg)
 void
 vdev_sync(vdev_t *vd, uint64_t txg)
 {
+
+	
+			#if defined(_KERNEL)
+			//printk("Entering vdev sync\r\n");
+			#endif
 	spa_t *spa = vd->vdev_spa;
 	vdev_t *lvd;
 	metaslab_t *msp;
@@ -2200,6 +2227,10 @@ vdev_sync(vdev_t *vd, uint64_t txg)
 		vdev_dtl_sync(lvd, txg);
 
 	(void) txg_list_add(&spa->spa_vdev_txg_list, vd, TXG_CLEAN(txg));
+
+			#if defined(_KERNEL)
+			//printk("Leaving vdev sync\r\n");
+			#endif
 }
 
 uint64_t

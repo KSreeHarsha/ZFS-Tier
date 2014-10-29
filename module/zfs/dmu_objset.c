@@ -996,6 +996,9 @@ dmu_objset_write_done(zio_t *zio, arc_buf_t *abuf, void *arg)
 void
 dmu_objset_sync(objset_t *os, zio_t *pio, dmu_tx_t *tx)
 {
+			#if defined(_KERNEL)
+			//printk("Entering dmu_objset_sync\r\n");
+			#endif
 	int txgoff;
 	zbookmark_t zb;
 	zio_prop_t zp;
@@ -1066,6 +1069,9 @@ dmu_objset_sync(objset_t *os, zio_t *pio, dmu_tx_t *tx)
 	dmu_objset_sync_dnodes(&os->os_free_dnodes[txgoff], newlist, tx);
 	dmu_objset_sync_dnodes(&os->os_dirty_dnodes[txgoff], newlist, tx);
 
+			#if defined(_KERNEL)
+			//printk("first zio nowait\r\n");
+			#endif
 	list = &DMU_META_DNODE(os)->dn_dirty_records[txgoff];
 	while ((dr = list_head(list))) {
 		ASSERT0(dr->dr_dbuf->db_level);
@@ -1076,9 +1082,18 @@ dmu_objset_sync(objset_t *os, zio_t *pio, dmu_tx_t *tx)
 	/*
 	 * Free intent log blocks up to this tx.
 	 */
+
+			#if defined(_KERNEL)
+			//printk("made it through first zio nowait\r\n");
+			#endif
 	zil_sync(os->os_zil, tx);
 	os->os_phys->os_zil_header = os->os_zil_header;
 	zio_nowait(zio);
+
+
+			#if defined(_KERNEL)
+			//printk("Leaving dmu_objset_sync\r\n");
+			#endif
 }
 
 boolean_t

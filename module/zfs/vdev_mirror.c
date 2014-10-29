@@ -99,6 +99,12 @@ vdev_mirror_pending(vdev_t *vd)
 noinline static mirror_map_t *
 vdev_mirror_map_alloc(zio_t *zio)
 {
+
+
+	
+			#if defined(_KERNEL)
+			//printk("Entering mirror map\r\n");
+			#endif
 	mirror_map_t *mm = NULL;
 	mirror_child_t *mc;
 	vdev_t *vd = zio->io_vd;
@@ -126,14 +132,24 @@ vdev_mirror_map_alloc(zio_t *zio)
 		 */
 		for (c = mm->mm_preferred, d = c - 1; d >= 0; d--) {
 			if (DVA_GET_VDEV(&dva[d]) == DVA_GET_VDEV(&dva[c]))
+
+
+		{		
+			#if defined(_KERNEL)
+			//printk("DVA1--%d DVA2--%d\r\n",DVA_GET_VDEV(&dva[d]),DVA_GET_VDEV(&dva[c]));
+			#endif
 				mm->mm_preferred = d;
 		}
-
+		}	
 		for (c = 0; c < mm->mm_children; c++) {
 			mc = &mm->mm_child[c];
 
 			mc->mc_vd = vdev_lookup_top(spa, DVA_GET_VDEV(&dva[c]));
 			mc->mc_offset = DVA_GET_OFFSET(&dva[c]);
+
+			#if defined(_KERNEL)
+			//printk("mcvd--%d mcoffset--%d\r\n",mc->mc_vd,mc->mc_offset);
+			#endif
 		}
 	} else {
 		int lowest_pending = INT_MAX;
@@ -191,6 +207,10 @@ vdev_mirror_map_alloc(zio_t *zio)
 
 	zio->io_vsd = mm;
 	zio->io_vsd_ops = &vdev_mirror_vsd_ops;
+
+			#if defined(_KERNEL)
+			//printk("Leaving mirror map\r\n");
+			#endif
 	return (mm);
 }
 
@@ -310,7 +330,11 @@ vdev_mirror_child_select(zio_t *zio)
 			continue;
 		}
 		if (!vdev_dtl_contains(mc->mc_vd, DTL_MISSING, txg, 1))
-			return (c);
+		{	
+			#if defined(_KERNEL)
+			//printk("selected child is %d\r\n",c);
+			#endif
+			return (c);}
 		mc->mc_error = SET_ERROR(ESTALE);
 		mc->mc_skipped = 1;
 		mc->mc_speculative = 1;
@@ -322,8 +346,12 @@ vdev_mirror_child_select(zio_t *zio)
 	 */
 	for (c = 0; c < mm->mm_children; c++)
 		if (!mm->mm_child[c].mc_tried)
+		{
+			#if defined(_KERNEL)
+			//printk("selected child is %d\r\n",c);
+			#endif
 			return (c);
-
+		}
 	/*
 	 * Every child failed.  There's no place left to look.
 	 */

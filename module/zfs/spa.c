@@ -6134,6 +6134,11 @@ spa_sync_upgrades(spa_t *spa, dmu_tx_t *tx)
 void
 spa_sync(spa_t *spa, uint64_t txg)
 {
+
+		
+			#if defined(_KERNEL)
+			//printk("Syncing txg in SPA %d \n",txg);
+			#endif
 	dsl_pool_t *dp = spa->spa_dsl_pool;
 	objset_t *mos = spa->spa_meta_objset;
 	bplist_t *free_bpl = &spa->spa_free_bplist[txg & TXG_MASK];
@@ -6142,6 +6147,10 @@ spa_sync(spa_t *spa, uint64_t txg)
 	dmu_tx_t *tx;
 	int error;
 	int c;
+
+			#if defined(_KERNEL)
+			//printk("Entering SPA sync\r\n");
+			#endif
 
 	VERIFY(spa_writeable(spa));
 
@@ -6189,6 +6198,9 @@ spa_sync(spa_t *spa, uint64_t txg)
 	 * If we are upgrading to SPA_VERSION_RAIDZ_DEFLATE this txg,
 	 * set spa_deflate if we have no raid-z vdevs.
 	 */
+			#if defined(_KERNEL)
+			//printk("comment 1\r\n");
+			#endif
 	if (spa->spa_ubsync.ub_version < SPA_VERSION_RAIDZ_DEFLATE &&
 	    spa->spa_uberblock.ub_version >= SPA_VERSION_RAIDZ_DEFLATE) {
 		int i;
@@ -6206,6 +6218,9 @@ spa_sync(spa_t *spa, uint64_t txg)
 		}
 	}
 
+			#if defined(_KERNEL)
+			//printk("comment 2\r\n");
+			#endif
 	/*
 	 * If anything has changed in this txg, or if someone is waiting
 	 * for this txg to sync (eg, spa_vdev_remove()), push the
@@ -6223,7 +6238,12 @@ spa_sync(spa_t *spa, uint64_t txg)
 
 	/*
 	 * Iterate to convergence.
+	 *
 	 */
+
+			#if defined(_KERNEL)
+			//printk("comment 3\r\n");
+			#endif
 	do {
 		int pass = ++spa->spa_sync_pass;
 
@@ -6232,9 +6252,20 @@ spa_sync(spa_t *spa, uint64_t txg)
 		    ZPOOL_CONFIG_SPARES, DMU_POOL_SPARES);
 		spa_sync_aux_dev(spa, &spa->spa_l2cache, tx,
 		    ZPOOL_CONFIG_L2CACHE, DMU_POOL_L2CACHE);
+		
+			#if defined(_KERNEL)
+			//printk("before spa err log\r\n");
+			#endif
 		spa_errlog_sync(spa, txg);
+	
+			#if defined(_KERNEL)
+			//printk("dsl pool sync enter\r\n");
+			#endif
 		dsl_pool_sync(dp, txg);
 
+			#if defined(_KERNEL)
+			//printk("dsl_pool_sync exit\r\n");
+			#endif
 		if (pass < zfs_sync_pass_deferred_free) {
 			spa_sync_frees(spa, free_bpl, tx);
 		} else {
@@ -6244,7 +6275,10 @@ spa_sync(spa_t *spa, uint64_t txg)
 
 		ddt_sync(spa, txg);
 		dsl_scan_sync(dp, tx);
-
+		
+			#if defined(_KERNEL)
+			//printk("made it before while loop\r\n");
+			#endif
 		while ((vd = txg_list_remove(&spa->spa_vdev_txg_list, txg)))
 			vdev_sync(vd, txg);
 
@@ -6253,6 +6287,9 @@ spa_sync(spa_t *spa, uint64_t txg)
 
 	} while (dmu_objset_is_dirty(mos, txg));
 
+			#if defined(_KERNEL)
+			//printk("comment 4\r\n");
+			#endif
 	/*
 	 * Rewrite the vdev configuration (which includes the uberblock)
 	 * to commit the transaction group.
@@ -6284,27 +6321,54 @@ spa_sync(spa_t *spa, uint64_t txg)
 					break;
 			}
 			error = vdev_config_sync(svd, svdcount, txg, B_FALSE);
+
+			#if defined(_KERNEL)
+			//printk("Error 1 %d\r\n",error);
+			#endif
 			if (error != 0)
 				error = vdev_config_sync(svd, svdcount, txg,
 				    B_TRUE);
+				
+			#if defined(_KERNEL)
+			//printk("Error 2 %d\r\n",error);
+			#endif
 		} else {
 			error = vdev_config_sync(rvd->vdev_child,
 			    rvd->vdev_children, txg, B_FALSE);
+					
+			#if defined(_KERNEL)
+			//printk("Error 3 %d\r\n",error);
+			#endif
 			if (error != 0)
 				error = vdev_config_sync(rvd->vdev_child,
 				    rvd->vdev_children, txg, B_TRUE);
-		}
+			}
+			#if defined(_KERNEL)
+			//printk("Error 4 %d\r\n",error);
+			#endif
 
 		if (error == 0)
 			spa->spa_last_synced_guid = rvd->vdev_guid;
 
+			#if defined(_KERNEL)
+			//printk("Error 5 %d\r\n",error);
+			#endif
 		spa_config_exit(spa, SCL_STATE, FTAG);
 
 		if (error == 0)
 			break;
+
+		
+			#if defined(_KERNEL)
+			//printk("Error 6 %d\r\n",error);
+			#endif
 		zio_suspend(spa, NULL);
 		zio_resume_wait(spa);
 	}
+
+			#if defined(_KERNEL)
+			//printk("comment 6\r\n");
+			#endif
 	dmu_tx_commit(tx);
 
 	taskq_cancel_id(system_taskq, spa->spa_deadman_tqid);

@@ -444,6 +444,9 @@ dsl_pool_dirty_delta(dsl_pool_t *dp, int64_t delta)
 void
 dsl_pool_sync(dsl_pool_t *dp, uint64_t txg)
 {
+			#if defined(_KERNEL)
+			//printk("Entering dsl_pool_sync\r\n");
+			#endif
 	zio_t *zio;
 	dmu_tx_t *tx;
 	dsl_dir_t *dd;
@@ -456,22 +459,44 @@ dsl_pool_sync(dsl_pool_t *dp, uint64_t txg)
 
 	tx = dmu_tx_create_assigned(dp, txg);
 
+			#if defined(_KERNEL)
+			//printk("Before root ZIO\r\n");
+			#endif
 	/*
 	 * Write out all dirty blocks of dirty datasets.
 	 */
 	zio = zio_root(dp->dp_spa, NULL, NULL, ZIO_FLAG_MUSTSUCCEED);
+	
+			#if defined(_KERNEL)
+			//printk("After  root ZIO\r\n");
+			#endif
 	while ((ds = txg_list_remove(&dp->dp_dirty_datasets, txg)) != NULL) {
 		/*
 		 * We must not sync any non-MOS datasets twice, because
 		 * we may have taken a snapshot of them.  However, we
 		 * may sync newly-created datasets on pass 2.
 		 */
+
+			#if defined(_KERNEL)
+			//printk("looping....\r\n");
+			#endif
 		ASSERT(!list_link_active(&ds->ds_synced_link));
 		list_insert_tail(&synced_datasets, ds);
+		
+			#if defined(_KERNEL)
+			//printk("Before dsl dataset sync\r\n");
+			#endif
 		dsl_dataset_sync(ds, zio, tx);
+
+			#if defined(_KERNEL)
+			//printk("After dsl dataset sync\r\n");
+			#endif
 	}
 	VERIFY0(zio_wait(zio));
 
+			#if defined(_KERNEL)
+			//printk("zio verified\r\n");
+			#endif
 	/*
 	 * We have written all of the accounted dirty data, so our
 	 * dp_space_towrite should now be zero.  However, some seldom-used
@@ -567,6 +592,9 @@ dsl_pool_sync(dsl_pool_t *dp, uint64_t txg)
 
 	dmu_tx_commit(tx);
 
+			#if defined(_KERNEL)
+			//printk("leacing dsl_pool_sync\r\n");
+			#endif
 	DTRACE_PROBE2(dsl_pool_sync__done, dsl_pool_t *dp, dp, uint64_t, txg);
 }
 

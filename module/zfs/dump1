@@ -1,0 +1,1146 @@
+
+Metaslabs:
+	vdev          0
+	metaslabs   119   offset                spacemap          free      
+	---------------   -------------------   ---------------   -------------
+	metaslab      0   offset            0   spacemap     37   free    1.00G
+	metaslab      1   offset     40000000   spacemap      0   free       1G
+	metaslab      2   offset     80000000   spacemap      0   free       1G
+	metaslab      3   offset     c0000000   spacemap      0   free       1G
+	metaslab      4   offset    100000000   spacemap      0   free       1G
+	metaslab      5   offset    140000000   spacemap      0   free       1G
+	metaslab      6   offset    180000000   spacemap      0   free       1G
+	metaslab      7   offset    1c0000000   spacemap      0   free       1G
+	metaslab      8   offset    200000000   spacemap      0   free       1G
+	metaslab      9   offset    240000000   spacemap      0   free       1G
+	metaslab     10   offset    280000000   spacemap      0   free       1G
+	metaslab     11   offset    2c0000000   spacemap      0   free       1G
+	metaslab     12   offset    300000000   spacemap      0   free       1G
+	metaslab     13   offset    340000000   spacemap      0   free       1G
+	metaslab     14   offset    380000000   spacemap      0   free       1G
+	metaslab     15   offset    3c0000000   spacemap      0   free       1G
+	metaslab     16   offset    400000000   spacemap      0   free       1G
+	metaslab     17   offset    440000000   spacemap      0   free       1G
+	metaslab     18   offset    480000000   spacemap      0   free       1G
+	metaslab     19   offset    4c0000000   spacemap      0   free       1G
+	metaslab     20   offset    500000000   spacemap      0   free       1G
+	metaslab     21   offset    540000000   spacemap      0   free       1G
+	metaslab     22   offset    580000000   spacemap      0   free       1G
+	metaslab     23   offset    5c0000000   spacemap     38   free    1.00G
+	metaslab     24   offset    600000000   spacemap      0   free       1G
+	metaslab     25   offset    640000000   spacemap      0   free       1G
+	metaslab     26   offset    680000000   spacemap      0   free       1G
+	metaslab     27   offset    6c0000000   spacemap      0   free       1G
+	metaslab     28   offset    700000000   spacemap      0   free       1G
+	metaslab     29   offset    740000000   spacemap      0   free       1G
+	metaslab     30   offset    780000000   spacemap      0   free       1G
+	metaslab     31   offset    7c0000000   spacemap      0   free       1G
+	metaslab     32   offset    800000000   spacemap      0   free       1G
+	metaslab     33   offset    840000000   spacemap      0   free       1G
+	metaslab     34   offset    880000000   spacemap      0   free       1G
+	metaslab     35   offset    8c0000000   spacemap      0   free       1G
+	metaslab     36   offset    900000000   spacemap      0   free       1G
+	metaslab     37   offset    940000000   spacemap      0   free       1G
+	metaslab     38   offset    980000000   spacemap      0   free       1G
+	metaslab     39   offset    9c0000000   spacemap      0   free       1G
+	metaslab     40   offset    a00000000   spacemap      0   free       1G
+	metaslab     41   offset    a40000000   spacemap      0   free       1G
+	metaslab     42   offset    a80000000   spacemap      0   free       1G
+	metaslab     43   offset    ac0000000   spacemap      0   free       1G
+	metaslab     44   offset    b00000000   spacemap      0   free       1G
+	metaslab     45   offset    b40000000   spacemap      0   free       1G
+	metaslab     46   offset    b80000000   spacemap      0   free       1G
+	metaslab     47   offset    bc0000000   spacemap      0   free       1G
+	metaslab     48   offset    c00000000   spacemap      0   free       1G
+	metaslab     49   offset    c40000000   spacemap      0   free       1G
+	metaslab     50   offset    c80000000   spacemap      0   free       1G
+	metaslab     51   offset    cc0000000   spacemap      0   free       1G
+	metaslab     52   offset    d00000000   spacemap      0   free       1G
+	metaslab     53   offset    d40000000   spacemap      0   free       1G
+	metaslab     54   offset    d80000000   spacemap      0   free       1G
+	metaslab     55   offset    dc0000000   spacemap      0   free       1G
+	metaslab     56   offset    e00000000   spacemap      0   free       1G
+	metaslab     57   offset    e40000000   spacemap      0   free       1G
+	metaslab     58   offset    e80000000   spacemap      0   free       1G
+	metaslab     59   offset    ec0000000   spacemap      0   free       1G
+	metaslab     60   offset    f00000000   spacemap      0   free       1G
+	metaslab     61   offset    f40000000   spacemap      0   free       1G
+	metaslab     62   offset    f80000000   spacemap      0   free       1G
+	metaslab     63   offset    fc0000000   spacemap      0   free       1G
+	metaslab     64   offset   1000000000   spacemap      0   free       1G
+	metaslab     65   offset   1040000000   spacemap      0   free       1G
+	metaslab     66   offset   1080000000   spacemap      0   free       1G
+	metaslab     67   offset   10c0000000   spacemap      0   free       1G
+	metaslab     68   offset   1100000000   spacemap      0   free       1G
+	metaslab     69   offset   1140000000   spacemap      0   free       1G
+	metaslab     70   offset   1180000000   spacemap      0   free       1G
+	metaslab     71   offset   11c0000000   spacemap      0   free       1G
+	metaslab     72   offset   1200000000   spacemap      0   free       1G
+	metaslab     73   offset   1240000000   spacemap      0   free       1G
+	metaslab     74   offset   1280000000   spacemap      0   free       1G
+	metaslab     75   offset   12c0000000   spacemap      0   free       1G
+	metaslab     76   offset   1300000000   spacemap      0   free       1G
+	metaslab     77   offset   1340000000   spacemap      0   free       1G
+	metaslab     78   offset   1380000000   spacemap      0   free       1G
+	metaslab     79   offset   13c0000000   spacemap      0   free       1G
+	metaslab     80   offset   1400000000   spacemap      0   free       1G
+	metaslab     81   offset   1440000000   spacemap      0   free       1G
+	metaslab     82   offset   1480000000   spacemap      0   free       1G
+	metaslab     83   offset   14c0000000   spacemap      0   free       1G
+	metaslab     84   offset   1500000000   spacemap      0   free       1G
+	metaslab     85   offset   1540000000   spacemap      0   free       1G
+	metaslab     86   offset   1580000000   spacemap      0   free       1G
+	metaslab     87   offset   15c0000000   spacemap      0   free       1G
+	metaslab     88   offset   1600000000   spacemap      0   free       1G
+	metaslab     89   offset   1640000000   spacemap      0   free       1G
+	metaslab     90   offset   1680000000   spacemap      0   free       1G
+	metaslab     91   offset   16c0000000   spacemap      0   free       1G
+	metaslab     92   offset   1700000000   spacemap      0   free       1G
+	metaslab     93   offset   1740000000   spacemap      0   free       1G
+	metaslab     94   offset   1780000000   spacemap      0   free       1G
+	metaslab     95   offset   17c0000000   spacemap      0   free       1G
+	metaslab     96   offset   1800000000   spacemap      0   free       1G
+	metaslab     97   offset   1840000000   spacemap      0   free       1G
+	metaslab     98   offset   1880000000   spacemap      0   free       1G
+	metaslab     99   offset   18c0000000   spacemap      0   free       1G
+	metaslab    100   offset   1900000000   spacemap      0   free       1G
+	metaslab    101   offset   1940000000   spacemap      0   free       1G
+	metaslab    102   offset   1980000000   spacemap      0   free       1G
+	metaslab    103   offset   19c0000000   spacemap      0   free       1G
+	metaslab    104   offset   1a00000000   spacemap      0   free       1G
+	metaslab    105   offset   1a40000000   spacemap      0   free       1G
+	metaslab    106   offset   1a80000000   spacemap      0   free       1G
+	metaslab    107   offset   1ac0000000   spacemap      0   free       1G
+	metaslab    108   offset   1b00000000   spacemap      0   free       1G
+	metaslab    109   offset   1b40000000   spacemap      0   free       1G
+	metaslab    110   offset   1b80000000   spacemap      0   free       1G
+	metaslab    111   offset   1bc0000000   spacemap      0   free       1G
+	metaslab    112   offset   1c00000000   spacemap      0   free       1G
+	metaslab    113   offset   1c40000000   spacemap      0   free       1G
+	metaslab    114   offset   1c80000000   spacemap      0   free       1G
+	metaslab    115   offset   1cc0000000   spacemap      0   free       1G
+	metaslab    116   offset   1d00000000   spacemap      0   free       1G
+	metaslab    117   offset   1d40000000   spacemap      0   free       1G
+	metaslab    118   offset   1d80000000   spacemap      0   free       1G
+
+	vdev          1
+	metaslabs   174   offset                spacemap          free      
+	---------------   -------------------   ---------------   -------------
+	metaslab      0   offset            0   spacemap     35   free    16.0G
+	metaslab      1   offset    400000000   spacemap      0   free      16G
+	metaslab      2   offset    800000000   spacemap      0   free      16G
+	metaslab      3   offset    c00000000   spacemap      0   free      16G
+	metaslab      4   offset   1000000000   spacemap      0   free      16G
+	metaslab      5   offset   1400000000   spacemap      0   free      16G
+	metaslab      6   offset   1800000000   spacemap      0   free      16G
+	metaslab      7   offset   1c00000000   spacemap      0   free      16G
+	metaslab      8   offset   2000000000   spacemap      0   free      16G
+	metaslab      9   offset   2400000000   spacemap      0   free      16G
+	metaslab     10   offset   2800000000   spacemap      0   free      16G
+	metaslab     11   offset   2c00000000   spacemap      0   free      16G
+	metaslab     12   offset   3000000000   spacemap      0   free      16G
+	metaslab     13   offset   3400000000   spacemap      0   free      16G
+	metaslab     14   offset   3800000000   spacemap      0   free      16G
+	metaslab     15   offset   3c00000000   spacemap      0   free      16G
+	metaslab     16   offset   4000000000   spacemap      0   free      16G
+	metaslab     17   offset   4400000000   spacemap      0   free      16G
+	metaslab     18   offset   4800000000   spacemap      0   free      16G
+	metaslab     19   offset   4c00000000   spacemap      0   free      16G
+	metaslab     20   offset   5000000000   spacemap      0   free      16G
+	metaslab     21   offset   5400000000   spacemap      0   free      16G
+	metaslab     22   offset   5800000000   spacemap      0   free      16G
+	metaslab     23   offset   5c00000000   spacemap      0   free      16G
+	metaslab     24   offset   6000000000   spacemap      0   free      16G
+	metaslab     25   offset   6400000000   spacemap      0   free      16G
+	metaslab     26   offset   6800000000   spacemap      0   free      16G
+	metaslab     27   offset   6c00000000   spacemap      0   free      16G
+	metaslab     28   offset   7000000000   spacemap      0   free      16G
+	metaslab     29   offset   7400000000   spacemap      0   free      16G
+	metaslab     30   offset   7800000000   spacemap      0   free      16G
+	metaslab     31   offset   7c00000000   spacemap      0   free      16G
+	metaslab     32   offset   8000000000   spacemap      0   free      16G
+	metaslab     33   offset   8400000000   spacemap     34   free    16.0G
+	metaslab     34   offset   8800000000   spacemap      0   free      16G
+	metaslab     35   offset   8c00000000   spacemap      0   free      16G
+	metaslab     36   offset   9000000000   spacemap      0   free      16G
+	metaslab     37   offset   9400000000   spacemap      0   free      16G
+	metaslab     38   offset   9800000000   spacemap      0   free      16G
+	metaslab     39   offset   9c00000000   spacemap      0   free      16G
+	metaslab     40   offset   a000000000   spacemap      0   free      16G
+	metaslab     41   offset   a400000000   spacemap      0   free      16G
+	metaslab     42   offset   a800000000   spacemap      0   free      16G
+	metaslab     43   offset   ac00000000   spacemap      0   free      16G
+	metaslab     44   offset   b000000000   spacemap      0   free      16G
+	metaslab     45   offset   b400000000   spacemap      0   free      16G
+	metaslab     46   offset   b800000000   spacemap      0   free      16G
+	metaslab     47   offset   bc00000000   spacemap      0   free      16G
+	metaslab     48   offset   c000000000   spacemap      0   free      16G
+	metaslab     49   offset   c400000000   spacemap      0   free      16G
+	metaslab     50   offset   c800000000   spacemap      0   free      16G
+	metaslab     51   offset   cc00000000   spacemap      0   free      16G
+	metaslab     52   offset   d000000000   spacemap      0   free      16G
+	metaslab     53   offset   d400000000   spacemap      0   free      16G
+	metaslab     54   offset   d800000000   spacemap      0   free      16G
+	metaslab     55   offset   dc00000000   spacemap      0   free      16G
+	metaslab     56   offset   e000000000   spacemap      0   free      16G
+	metaslab     57   offset   e400000000   spacemap      0   free      16G
+	metaslab     58   offset   e800000000   spacemap      0   free      16G
+	metaslab     59   offset   ec00000000   spacemap      0   free      16G
+	metaslab     60   offset   f000000000   spacemap      0   free      16G
+	metaslab     61   offset   f400000000   spacemap      0   free      16G
+	metaslab     62   offset   f800000000   spacemap      0   free      16G
+	metaslab     63   offset   fc00000000   spacemap      0   free      16G
+	metaslab     64   offset  10000000000   spacemap      0   free      16G
+	metaslab     65   offset  10400000000   spacemap      0   free      16G
+	metaslab     66   offset  10800000000   spacemap      0   free      16G
+	metaslab     67   offset  10c00000000   spacemap      0   free      16G
+	metaslab     68   offset  11000000000   spacemap      0   free      16G
+	metaslab     69   offset  11400000000   spacemap      0   free      16G
+	metaslab     70   offset  11800000000   spacemap      0   free      16G
+	metaslab     71   offset  11c00000000   spacemap      0   free      16G
+	metaslab     72   offset  12000000000   spacemap      0   free      16G
+	metaslab     73   offset  12400000000   spacemap      0   free      16G
+	metaslab     74   offset  12800000000   spacemap      0   free      16G
+	metaslab     75   offset  12c00000000   spacemap      0   free      16G
+	metaslab     76   offset  13000000000   spacemap      0   free      16G
+	metaslab     77   offset  13400000000   spacemap      0   free      16G
+	metaslab     78   offset  13800000000   spacemap      0   free      16G
+	metaslab     79   offset  13c00000000   spacemap      0   free      16G
+	metaslab     80   offset  14000000000   spacemap      0   free      16G
+	metaslab     81   offset  14400000000   spacemap      0   free      16G
+	metaslab     82   offset  14800000000   spacemap      0   free      16G
+	metaslab     83   offset  14c00000000   spacemap      0   free      16G
+	metaslab     84   offset  15000000000   spacemap      0   free      16G
+	metaslab     85   offset  15400000000   spacemap      0   free      16G
+	metaslab     86   offset  15800000000   spacemap      0   free      16G
+	metaslab     87   offset  15c00000000   spacemap      0   free      16G
+	metaslab     88   offset  16000000000   spacemap      0   free      16G
+	metaslab     89   offset  16400000000   spacemap      0   free      16G
+	metaslab     90   offset  16800000000   spacemap      0   free      16G
+	metaslab     91   offset  16c00000000   spacemap      0   free      16G
+	metaslab     92   offset  17000000000   spacemap      0   free      16G
+	metaslab     93   offset  17400000000   spacemap      0   free      16G
+	metaslab     94   offset  17800000000   spacemap      0   free      16G
+	metaslab     95   offset  17c00000000   spacemap      0   free      16G
+	metaslab     96   offset  18000000000   spacemap      0   free      16G
+	metaslab     97   offset  18400000000   spacemap      0   free      16G
+	metaslab     98   offset  18800000000   spacemap      0   free      16G
+	metaslab     99   offset  18c00000000   spacemap      0   free      16G
+	metaslab    100   offset  19000000000   spacemap      0   free      16G
+	metaslab    101   offset  19400000000   spacemap      0   free      16G
+	metaslab    102   offset  19800000000   spacemap      0   free      16G
+	metaslab    103   offset  19c00000000   spacemap      0   free      16G
+	metaslab    104   offset  1a000000000   spacemap      0   free      16G
+	metaslab    105   offset  1a400000000   spacemap      0   free      16G
+	metaslab    106   offset  1a800000000   spacemap      0   free      16G
+	metaslab    107   offset  1ac00000000   spacemap      0   free      16G
+	metaslab    108   offset  1b000000000   spacemap      0   free      16G
+	metaslab    109   offset  1b400000000   spacemap      0   free      16G
+	metaslab    110   offset  1b800000000   spacemap      0   free      16G
+	metaslab    111   offset  1bc00000000   spacemap      0   free      16G
+	metaslab    112   offset  1c000000000   spacemap      0   free      16G
+	metaslab    113   offset  1c400000000   spacemap      0   free      16G
+	metaslab    114   offset  1c800000000   spacemap      0   free      16G
+	metaslab    115   offset  1cc00000000   spacemap      0   free      16G
+	metaslab    116   offset  1d000000000   spacemap      0   free      16G
+	metaslab    117   offset  1d400000000   spacemap      0   free      16G
+	metaslab    118   offset  1d800000000   spacemap      0   free      16G
+	metaslab    119   offset  1dc00000000   spacemap      0   free      16G
+	metaslab    120   offset  1e000000000   spacemap      0   free      16G
+	metaslab    121   offset  1e400000000   spacemap      0   free      16G
+	metaslab    122   offset  1e800000000   spacemap      0   free      16G
+	metaslab    123   offset  1ec00000000   spacemap      0   free      16G
+	metaslab    124   offset  1f000000000   spacemap      0   free      16G
+	metaslab    125   offset  1f400000000   spacemap      0   free      16G
+	metaslab    126   offset  1f800000000   spacemap      0   free      16G
+	metaslab    127   offset  1fc00000000   spacemap      0   free      16G
+	metaslab    128   offset  20000000000   spacemap      0   free      16G
+	metaslab    129   offset  20400000000   spacemap      0   free      16G
+	metaslab    130   offset  20800000000   spacemap      0   free      16G
+	metaslab    131   offset  20c00000000   spacemap      0   free      16G
+	metaslab    132   offset  21000000000   spacemap      0   free      16G
+	metaslab    133   offset  21400000000   spacemap      0   free      16G
+	metaslab    134   offset  21800000000   spacemap      0   free      16G
+	metaslab    135   offset  21c00000000   spacemap      0   free      16G
+	metaslab    136   offset  22000000000   spacemap      0   free      16G
+	metaslab    137   offset  22400000000   spacemap      0   free      16G
+	metaslab    138   offset  22800000000   spacemap      0   free      16G
+	metaslab    139   offset  22c00000000   spacemap      0   free      16G
+	metaslab    140   offset  23000000000   spacemap      0   free      16G
+	metaslab    141   offset  23400000000   spacemap      0   free      16G
+	metaslab    142   offset  23800000000   spacemap      0   free      16G
+	metaslab    143   offset  23c00000000   spacemap      0   free      16G
+	metaslab    144   offset  24000000000   spacemap      0   free      16G
+	metaslab    145   offset  24400000000   spacemap      0   free      16G
+	metaslab    146   offset  24800000000   spacemap      0   free      16G
+	metaslab    147   offset  24c00000000   spacemap      0   free      16G
+	metaslab    148   offset  25000000000   spacemap      0   free      16G
+	metaslab    149   offset  25400000000   spacemap      0   free      16G
+	metaslab    150   offset  25800000000   spacemap      0   free      16G
+	metaslab    151   offset  25c00000000   spacemap      0   free      16G
+	metaslab    152   offset  26000000000   spacemap      0   free      16G
+	metaslab    153   offset  26400000000   spacemap      0   free      16G
+	metaslab    154   offset  26800000000   spacemap      0   free      16G
+	metaslab    155   offset  26c00000000   spacemap      0   free      16G
+	metaslab    156   offset  27000000000   spacemap      0   free      16G
+	metaslab    157   offset  27400000000   spacemap      0   free      16G
+	metaslab    158   offset  27800000000   spacemap      0   free      16G
+	metaslab    159   offset  27c00000000   spacemap      0   free      16G
+	metaslab    160   offset  28000000000   spacemap      0   free      16G
+	metaslab    161   offset  28400000000   spacemap      0   free      16G
+	metaslab    162   offset  28800000000   spacemap      0   free      16G
+	metaslab    163   offset  28c00000000   spacemap      0   free      16G
+	metaslab    164   offset  29000000000   spacemap      0   free      16G
+	metaslab    165   offset  29400000000   spacemap      0   free      16G
+	metaslab    166   offset  29800000000   spacemap      0   free      16G
+	metaslab    167   offset  29c00000000   spacemap      0   free      16G
+	metaslab    168   offset  2a000000000   spacemap      0   free      16G
+	metaslab    169   offset  2a400000000   spacemap      0   free      16G
+	metaslab    170   offset  2a800000000   spacemap      0   free      16G
+	metaslab    171   offset  2ac00000000   spacemap      0   free      16G
+	metaslab    172   offset  2b000000000   spacemap      0   free      16G
+	metaslab    173   offset  2b400000000   spacemap      0   free      16G
+
+Dataset mos [META], ID 0, cr_txg 4, 288K, 38 objects, rootbp DVA[0]=<1:63000:1000> DVA[1]=<0:1a200:200> DVA[2]=<1:8400028000:1000> [L0 DMU objset] fletcher4 lzjb LE contiguous unique triple size=800L/200P birth=22L/22P fill=38 cksum=1269568dd6:655a3f226a1:12089680acb1d:2368f2a2cb98da
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         0    1    16K    16K  20.5K    32K   59.38  DMU dnode
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 1
+Indirect blocks:
+               0 L0 1:6a000:1000 4000L/c00P F=31 B=22/22
+            4000 L0 1:68000:1000 4000L/600P F=7 B=22/22
+
+		segment [0000000000000200, 0000000000004e00) size 19.0K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         1    1    16K     1K  8.50K     1K  100.00  object directory
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 1024 bytes, 10 entries
+
+		features_for_read = 28 
+		features_for_write = 29 
+		history = 32 
+		config = 27 
+		feature_descriptions = 30 
+		creation_version = 5000 
+		root_dataset = 2 
+		deflate = 1 
+		sync_bplist = 31 
+		free_bpobj = 11 
+Indirect blocks:
+               0 L0 1:12000:1000 400L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000400) size    1K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         2    1    16K    512      0    512    0.00  DSL directory
+                                        256   bonus  DSL directory
+	dnode flags: 
+	dnode maxblkid: 0
+		creation_time = Thu Sep 11 13:07:11 2014
+		head_dataset_obj = 21
+		parent_dir_obj = 0
+		origin_obj = 18
+		child_dir_zapobj = 4
+		used_bytes = 383K
+		compressed_bytes = 52.5K
+		uncompressed_bytes = 52.5K
+		quota = 0
+		reserved = 0
+		props_zapobj = 3
+		deleg_zapobj = 0
+		flags = 1
+		used_breakdown[HEAD] = 95.0K
+		used_breakdown[SNAP] = 0
+		used_breakdown[CHILD] = 288K
+		used_breakdown[CHILD_RSRV] = 0
+		used_breakdown[REFRSRV] = 0
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         3    1    16K    512  8.50K    512  100.00  DSL props
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:13000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         4    1    16K    512  8.50K    512  100.00  DSL directory child map
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 3 entries
+
+		$FREE = 8 
+		$MOS = 5 
+		$ORIGIN = 12 
+Indirect blocks:
+               0 L0 1:14000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         5    1    16K    512      0    512    0.00  DSL directory
+                                        256   bonus  DSL directory
+	dnode flags: 
+	dnode maxblkid: 0
+		creation_time = Thu Sep 11 13:07:11 2014
+		head_dataset_obj = 0
+		parent_dir_obj = 2
+		origin_obj = 0
+		child_dir_zapobj = 7
+		used_bytes = 288K
+		compressed_bytes = 27.5K
+		uncompressed_bytes = 27.5K
+		quota = 0
+		reserved = 0
+		props_zapobj = 6
+		deleg_zapobj = 0
+		flags = 1
+		used_breakdown[HEAD] = 288K
+		used_breakdown[SNAP] = 0
+		used_breakdown[CHILD] = 0
+		used_breakdown[CHILD_RSRV] = 0
+		used_breakdown[REFRSRV] = 0
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         6    1    16K    512  8.50K    512  100.00  DSL props
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:15000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         7    1    16K    512  8.50K    512  100.00  DSL directory child map
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:16000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         8    1    16K    512      0    512    0.00  DSL directory
+                                        256   bonus  DSL directory
+	dnode flags: 
+	dnode maxblkid: 0
+		creation_time = Thu Sep 11 13:07:11 2014
+		head_dataset_obj = 0
+		parent_dir_obj = 2
+		origin_obj = 0
+		child_dir_zapobj = 10
+		used_bytes = 0
+		compressed_bytes = 0
+		uncompressed_bytes = 0
+		quota = 0
+		reserved = 0
+		props_zapobj = 9
+		deleg_zapobj = 0
+		flags = 1
+		used_breakdown[HEAD] = 0
+		used_breakdown[SNAP] = 0
+		used_breakdown[CHILD] = 0
+		used_breakdown[CHILD_RSRV] = 0
+		used_breakdown[REFRSRV] = 0
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         9    1    16K    512  8.50K    512  100.00  DSL props
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:17000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        10    1    16K    512  8.50K    512  100.00  DSL directory child map
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:18000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        11    1    16K   128K      0   128K    0.00  bpobj
+                                         48   bonus  bpobj header
+	dnode flags: 
+	dnode maxblkid: 0
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        12    1    16K    512      0    512    0.00  DSL directory
+                                        256   bonus  DSL directory
+	dnode flags: 
+	dnode maxblkid: 0
+		creation_time = Thu Sep 11 13:07:11 2014
+		head_dataset_obj = 15
+		parent_dir_obj = 2
+		origin_obj = 0
+		child_dir_zapobj = 14
+		used_bytes = 0
+		compressed_bytes = 0
+		uncompressed_bytes = 0
+		quota = 0
+		reserved = 0
+		props_zapobj = 13
+		deleg_zapobj = 0
+		flags = 1
+		used_breakdown[HEAD] = 0
+		used_breakdown[SNAP] = 0
+		used_breakdown[CHILD] = 0
+		used_breakdown[CHILD_RSRV] = 0
+		used_breakdown[REFRSRV] = 0
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        13    1    16K    512  8.50K    512  100.00  DSL props
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:19000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        14    1    16K    512  8.50K    512  100.00  DSL directory child map
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:1a000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        15    1    16K    512      0    512    0.00  DSL dataset
+                                        320   bonus  DSL dataset
+	dnode flags: 
+	dnode maxblkid: 0
+		dir_obj = 12
+		prev_snap_obj = 18
+		prev_snap_txg = 1
+		next_snap_obj = 0
+		snapnames_zapobj = 16
+		num_children = 0
+		userrefs_obj = 0
+		creation_time = Thu Sep 11 13:07:11 2014
+		creation_txg = 1
+		deadlist_obj = 19
+		used_bytes = 0
+		compressed_bytes = 0
+		uncompressed_bytes = 0
+		unique = 0
+		fsid_guid = 260950377554473
+		guid = 17620044256955334797
+		flags = 4
+		next_clones_obj = 0
+		props_obj = 0
+		bp = <hole>
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        16    1    16K    512  8.50K    512  100.00  DSL dataset snap map
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		$ORIGIN = 18 
+Indirect blocks:
+               0 L0 1:1b000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        17    1    16K    512  8.50K    512  100.00  DSL deadlist map
+                                        320   bonus  DSL deadlist map hdr
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:1c000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        18    1    16K    512      0    512    0.00  DSL dataset
+                                        320   bonus  DSL dataset
+	dnode flags: 
+	dnode maxblkid: 0
+		dir_obj = 12
+		prev_snap_obj = 0
+		prev_snap_txg = 0
+		next_snap_obj = 15
+		snapnames_zapobj = 0
+		num_children = 2
+		userrefs_obj = 0
+		creation_time = Thu Sep 11 13:07:11 2014
+		creation_txg = 1
+		deadlist_obj = 17
+		used_bytes = 0
+		compressed_bytes = 0
+		uncompressed_bytes = 0
+		unique = 0
+		fsid_guid = 28348021830042940
+		guid = 15757557408490775038
+		flags = 4
+		next_clones_obj = 25
+		props_obj = 0
+		bp = <hole>
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        19    1    16K    512  8.50K    512  100.00  DSL deadlist map
+                                        320   bonus  DSL deadlist map hdr
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		0 = 20 
+Indirect blocks:
+               0 L0 1:1d000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        20    1    16K   128K      0   128K    0.00  bpobj
+                                         48   bonus  bpobj header
+	dnode flags: 
+	dnode maxblkid: 0
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        21    1    16K    512      0    512    0.00  DSL dataset
+                                        320   bonus  DSL dataset
+	dnode flags: 
+	dnode maxblkid: 0
+		dir_obj = 2
+		prev_snap_obj = 18
+		prev_snap_txg = 1
+		next_snap_obj = 0
+		snapnames_zapobj = 22
+		num_children = 0
+		userrefs_obj = 0
+		creation_time = Thu Sep 11 13:07:11 2014
+		creation_txg = 1
+		deadlist_obj = 23
+		used_bytes = 95.0K
+		compressed_bytes = 25.0K
+		uncompressed_bytes = 25.0K
+		unique = 95.0K
+		fsid_guid = 62622368041811747
+		guid = 11005497129621242420
+		flags = 4
+		next_clones_obj = 0
+		props_obj = 0
+		bp = DVA[0]=<1:61000:1000> DVA[1]=<0:19600:200> [L0 DMU objset] fletcher4 lzjb LE contiguous unique double size=800L/200P birth=22L/22P fill=7 cksum=17973af6e9:8619bafa313:196d1ce6e186b:36173289cc9fe3
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        22    1    16K    512  8.50K    512  100.00  DSL dataset snap map
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:1e000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        23    1    16K    512  8.50K    512  100.00  DSL deadlist map
+                                        320   bonus  DSL deadlist map hdr
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		0 = 24 
+Indirect blocks:
+               0 L0 1:1f000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        24    1    16K   128K      0   128K    0.00  bpobj
+                                         48   bonus  bpobj header
+	dnode flags: 
+	dnode maxblkid: 0
+Indirect blocks:
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        25    1    16K    512  8.50K    512  100.00  DSL dataset next clones
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		15 = 21 
+Indirect blocks:
+               0 L0 1:20000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        26    1    16K    512  8.50K    512  100.00  DSL dir clones
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		15 = 21 
+Indirect blocks:
+               0 L0 1:21000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        27    1    16K    16K   9.5K    16K  100.00  packed nvlist
+                                          8   bonus  packed nvlist size
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+        version: 5000
+        name: 'tank'
+        state: 0
+        txg: 4
+        pool_guid: 9358625372114394850
+        errata: 0
+        hostname: 'cluster.hpc.org'
+        vdev_children: 2
+        vdev_tree:
+            type: 'root'
+            id: 0
+            guid: 9358625372114394850
+            create_txg: 4
+            children[0]:
+                type: 'disk'
+                id: 0
+                guid: 10188255001166332765
+                path: '/dev/sde1'
+                whole_disk: 1
+                metaslab_array: 36
+                metaslab_shift: 30
+                ashift: 9
+                asize: 128020119552
+                is_log: 0
+                create_txg: 4
+            children[1]:
+                type: 'disk'
+                id: 1
+                guid: 16318720270022287410
+                path: '/dev/sdi1'
+                whole_disk: 1
+                metaslab_array: 33
+                metaslab_shift: 34
+                ashift: 12
+                asize: 3000578342912
+                is_log: 0
+                create_txg: 4
+        features_for_read:
+Indirect blocks:
+               0 L0 1:23000:1000 4000L/600P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000004000) size   16K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        28    1    16K    512  8.50K    512  100.00  zap
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		org.illumos:lz4_compress = 0 
+Indirect blocks:
+               0 L0 1:22000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        29    1    16K    512  8.50K    512  100.00  zap
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 2 entries
+
+		com.delphix:empty_bpobj = 0 
+		com.delphix:async_destroy = 0 
+Indirect blocks:
+               0 L0 1:24000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        30    1    16K    16K  19.5K    32K  100.00  zap
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 1
+	Fat ZAP stats:
+		Pointer table:
+			1024 elements
+			zt_blk: 0
+			zt_numblks: 0
+			zt_shift: 10
+			zt_blks_copied: 0
+			zt_nextblk: 0
+		ZAP entries: 3
+		Leaf blocks: 1
+		Total blocks: 2
+		zap_block_type: 0x8000000000000001
+		zap_magic: 0x2f52ab2ab
+		zap_salt: 0x76fbd
+		Leafs with 2^n pointers:
+			9:      1 *
+		Blocks with n*5 entries:
+			0:      1 *
+		Blocks n/10 full:
+			1:      1 *
+		Entries with n chunks:
+			5:      3 ***
+		Buckets with n entries:
+			0:    509 ****************************************
+			1:      3 *
+
+		org.illumos:lz4_compress = LZ4 compression algorithm support.
+		com.delphix:empty_bpobj = Snapshots use less space.
+		com.delphix:async_destroy = Destroy filesystems asynchronously.
+Indirect blocks:
+               0 L0 1:25000:1000 4000L/400P F=1 B=4/4
+            4000 L0 1:26000:1000 4000L/a00P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000008000) size   32K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        31    1    16K    16K  9.00K    16K  100.00  bpobj (Z=uncompressed)
+                                         48   bonus  bpobj header
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L0 1:69000:1000 4000L/400P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000004000) size   16K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        32    1    16K   128K  20.5K   128K  100.00  SPA history
+                                         40   bonus  SPA history offsets
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+		pool_create_len = 640
+		phys_max_off = 1073741824
+		bof = 640
+		eof = 640
+		records_lost = 0
+Indirect blocks:
+               0 L0 1:34000:2000 20000L/1200P F=1 B=5/5
+
+		segment [0000000000000000, 0000000000020000) size  128K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        33    1    16K    512  8.50K    512  100.00  object array
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L0 1:2a000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        34    1    16K     4K  8.50K     4K  100.00  SPA space map
+                                         24   bonus  SPA space map header
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L0 1:66000:1000 1000L/200P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000001000) size    4K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        35    1    16K     4K  8.50K     4K  100.00  SPA space map
+                                         24   bonus  SPA space map header
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L0 1:67000:1000 1000L/200P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000001000) size    4K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        36    1    16K    512  5.00K    512  100.00  object array
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L0 0:10400:200 200L/200P F=1 B=21/21
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        37    1    16K     4K  8.50K     4K  100.00  SPA space map
+                                         24   bonus  SPA space map header
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L0 1:65000:1000 1000L/200P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000001000) size    4K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        38    1    16K     4K  8.50K     4K  100.00  SPA space map
+                                         24   bonus  SPA space map header
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L0 1:64000:1000 1000L/200P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000001000) size    4K
+
+    Deferred frees: object 31, 6 blkptrs, 37.5K
+	1:62000:1000 4000L/a00P F=0 B=22/22
+	0:10c00:600 4000L/600P F=0 B=21/21
+	0:10200:200 1000L/200P F=0 B=21/21
+	0:10600:200 1000L/200P F=0 B=21/21
+	0:10800:200 1000L/200P F=0 B=21/21
+	0:10a00:200 1000L/200P F=0 B=21/21
+
+    Pool snapshot frees: object 11, 0 blkptrs, 0
+
+
+Dirty time logs:
+
+	tank [DTL-required]
+	    /dev/sde1 [DTL-required]
+	    /dev/sdi1 [DTL-required]
+Dataset tank [ZPL], ID 21, cr_txg 1, 95.0K, 7 objects, rootbp DVA[0]=<1:61000:1000> DVA[1]=<0:19600:200> [L0 DMU objset] fletcher4 lzjb LE contiguous unique double size=800L/200P birth=22L/22P fill=7 cksum=17973af6e9:8619bafa313:196d1ce6e186b:36173289cc9fe3
+
+    ZIL header: claim_txg 0, claim_blk_seq 0, claim_lr_seq 0 replay_seq 0, flags 0x0
+
+	Block seqno 10, won't claim, DVA[0]=<0:16200:1000> [L0 ZIL intent log] zilog2 uncompressed LE contiguous unique single size=1000L/1000P birth=22L/22P fill=0 cksum=d2ffe9b5a98562e2:82b4ecbf9967f8ac:15:a
+
+
+    Deadlist: 0 (0/0 comp)
+
+    mintxg 0 -> obj 24: object 24, 0 blkptrs, 0
+
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         0    7    16K    16K  35.5K    16K   21.88  DMU dnode
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+Indirect blocks:
+               0 L6       1:5d000:1000 4000L/400P F=7 B=22/22
+               0  L5      1:5c000:1000 4000L/400P F=7 B=22/22
+               0   L4     1:5b000:1000 4000L/400P F=7 B=22/22
+               0    L3    1:5a000:1000 4000L/400P F=7 B=22/22
+               0     L2   1:59000:1000 4000L/400P F=7 B=22/22
+               0      L1  1:58000:1000 4000L/400P F=7 B=22/22
+               0       L0 1:57000:1000 4000L/600P F=7 B=22/22
+
+		segment [0000000000000200, 0000000000001000) size 3.50K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        -1    1    16K    512  4.50K    512  100.00  ZFS user/group used
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		0 = 17920 
+Indirect blocks:
+               0 L0 1:5f000:1000 200L/200P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+        -2    1    16K    512  4.50K    512  100.00  ZFS user/group used
+	dnode flags: USED_BYTES 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 1 entries
+
+		0 = 17920 
+Indirect blocks:
+               0 L0 1:60000:1000 200L/200P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         1    1    16K    512  4.50K    512  100.00  ZFS master node
+	dnode flags: USED_BYTES USERUSED_ACCOUNTED 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 7 entries
+
+		SA_ATTRS = 2 
+		casesensitivity = 0 
+		utf8only = 0 
+		DELETE_QUEUE = 3 
+		ROOT = 4 
+		VERSION = 5 
+		normalization = 0 
+Indirect blocks:
+               0 L0 1:0:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         2    1    16K    512  4.50K    512  100.00  SA master node
+	dnode flags: USED_BYTES USERUSED_ACCOUNTED 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 2 entries
+
+		REGISTRY = 5 
+		LAYOUTS = 6 
+Indirect blocks:
+               0 L0 1:1000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         3    1    16K    512  4.50K    512  100.00  ZFS delete queue
+	dnode flags: USED_BYTES USERUSED_ACCOUNTED 
+	dnode maxblkid: 0
+	microzap: 512 bytes, 0 entries
+
+Indirect blocks:
+               0 L0 1:2000:1000 200L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         4    1    16K    512  4.50K    512  100.00  ZFS directory
+                                        168   bonus  System attributes
+	dnode flags: USED_BYTES USERUSED_ACCOUNTED 
+	dnode maxblkid: 0
+	path	/
+	uid     0
+	gid     0
+	atime	Thu Sep 11 13:07:11 2014
+	mtime	Thu Sep 11 13:08:35 2014
+	ctime	Thu Sep 11 13:08:35 2014
+	crtime	Thu Sep 11 13:07:11 2014
+	gen	4
+	mode	40755
+	size	3
+	parent	4
+	links	2
+	pflags	40800000144
+	microzap: 512 bytes, 1 entries
+
+		testfile = 7 (type: Regular File)
+Indirect blocks:
+               0 L0 0:ce00:200 200L/200P F=1 B=21/21
+
+		segment [0000000000000000, 0000000000000200) size   512
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         5    1    16K  1.50K  4.50K  1.50K  100.00  SA attr registration
+	dnode flags: USED_BYTES USERUSED_ACCOUNTED 
+	dnode maxblkid: 0
+	microzap: 1536 bytes, 21 entries
+
+		ZPL_UID =  800000c : [8:0:12]
+		ZPL_DXATTR =  30014 : [0:3:20]
+		ZPL_CRTIME =  10000003 : [16:0:3]
+		ZPL_DACL_COUNT =  8000010 : [8:0:16]
+		ZPL_LINKS =  8000008 : [8:0:8]
+		ZPL_ATIME =  10000000 : [16:0:0]
+		ZPL_PARENT =  8000007 : [8:0:7]
+		ZPL_DACL_ACES =  40013 : [0:4:19]
+		ZPL_RDEV =  800000a : [8:0:10]
+		ZPL_GEN =  8000004 : [8:0:4]
+		ZPL_XATTR =  8000009 : [8:0:9]
+		ZPL_GID =  800000d : [8:0:13]
+		ZPL_ZNODE_ACL =  5803000f : [88:3:15]
+		ZPL_MODE =  8000005 : [8:0:5]
+		ZPL_SCANSTAMP =  20030012 : [32:3:18]
+		ZPL_SYMLINK =  30011 : [0:3:17]
+		ZPL_FLAGS =  800000b : [8:0:11]
+		ZPL_PAD =  2000000e : [32:0:14]
+		ZPL_CTIME =  10000002 : [16:0:2]
+		ZPL_MTIME =  10000001 : [16:0:1]
+		ZPL_SIZE =  8000006 : [8:0:6]
+Indirect blocks:
+               0 L0 1:4000:1000 600L/200P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000000600) size 1.50K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         6    1    16K    16K  11.5K    32K  100.00  SA attr layouts
+	dnode flags: USED_BYTES USERUSED_ACCOUNTED 
+	dnode maxblkid: 1
+	Fat ZAP stats:
+		Pointer table:
+			1024 elements
+			zt_blk: 0
+			zt_numblks: 0
+			zt_shift: 10
+			zt_blks_copied: 0
+			zt_nextblk: 0
+		ZAP entries: 1
+		Leaf blocks: 1
+		Total blocks: 2
+		zap_block_type: 0x8000000000000001
+		zap_magic: 0x2f52ab2ab
+		zap_salt: 0x7f64d
+		Leafs with 2^n pointers:
+			9:      1 *
+		Blocks with n*5 entries:
+			0:      1 *
+		Blocks n/10 full:
+			1:      1 *
+		Entries with n chunks:
+			4:      1 *
+		Buckets with n entries:
+			0:    511 ****************************************
+			1:      1 *
+
+		2 = [ 5  6  4  12  13  7  11  0  1  2  3  8  16  19 ]
+Indirect blocks:
+               0 L0 1:5000:1000 4000L/400P F=1 B=4/4
+            4000 L0 1:6000:1000 4000L/a00P F=1 B=4/4
+
+		segment [0000000000000000, 0000000000008000) size   32K
+
+    Object  lvl   iblk   dblk  dsize  lsize   %full  type
+         7    1    16K  10.0K  12.0K  10.0K  100.00  ZFS plain file
+                                        168   bonus  System attributes
+	dnode flags: USED_BYTES USERUSED_ACCOUNTED 
+	dnode maxblkid: 0
+	path	/testfile
+	uid     0
+	gid     0
+	atime	Thu Sep 11 13:08:35 2014
+	mtime	Thu Sep 11 13:08:35 2014
+	ctime	Thu Sep 11 13:08:35 2014
+	crtime	Thu Sep 11 13:08:35 2014
+	gen	21
+	mode	100644
+	size	10240
+	parent	4
+	links	1
+	pflags	40800000004
+Indirect blocks:
+               0 L0 1:54000:3000 2800L/2800P F=1 B=22/22
+
+		segment [0000000000000000, 0000000000002800) size 10.0K
+

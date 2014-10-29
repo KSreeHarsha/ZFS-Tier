@@ -1388,7 +1388,7 @@ is_grouping(const char *type, int *mindev, int *maxdev)
 	
 	if (strcmp(type, "tier") == 0) {
 		if (mindev != NULL)
-			*mindev = 2;
+			*mindev = 1;
 		return (VDEV_TYPE_TIER);
 	}
 
